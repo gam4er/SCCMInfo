@@ -62,13 +62,6 @@ namespace SCCMInfo
             try
             {
                 scope = WmiUtil.NewWmiConnection();
-                /*
-                ConnectionOptions options = new ConnectionOptions();
-                options.Username = @"gam\administrator";
-                options.Password = @"~=Gam1987=~";                
-                scope = new ManagementScope(@"\\192.168.199.129\ROOT\SMS\site_GAM", options);
-                scope.Connect();
-                */
                 WriteLog(scope.Path.Path);
 
                 foreach (string className in classesToMonitor)
