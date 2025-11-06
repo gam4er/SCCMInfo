@@ -1,6 +1,7 @@
 ﻿using Spectre.Console;
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Management;
 using System.Text;
@@ -12,6 +13,10 @@ namespace SCCMInfo
     internal class SCCMInfo
     {
         public static ManagementScope scope = new ManagementScope();
+
+        private const string ApplicationLogName = "Application";
+        private const string EventSourceName = "SCCMInfo";
+        private const int EventLogEntryId = 2001;
 
         private static readonly IInstanceEnricher [] InstanceEnrichers =
         {
@@ -153,8 +158,13 @@ namespace SCCMInfo
                     }
                 }
 
+                string logText = logMessage.ToString();
+
                 // Записываем в лог
-                WriteLog(logMessage.ToString());
+                WriteLog(logText);
+
+                // Пишем в журнал приложений
+                WriteApplicationEvent(logText);
                 // Выводим таблицу на экран
                 AnsiConsole.Write(table);
             }
@@ -189,6 +199,60 @@ namespace SCCMInfo
             {
                 // Обработка исключений, если требуется
                 Console.WriteLine($"Log write error: {ex.Message}\n{ex.StackTrace}");
+            }
+        }
+
+        private static void WriteApplicationEvent(string message)
+        {
+            if (!IsApplicationLogWritable(out string failureReason))
+            {
+                if (!string.IsNullOrWhiteSpace(failureReason))
+                {
+                    WriteLog($"Application event log is not writable: {failureReason}");
+                }
+                return;
+            }
+
+            try
+            {
+                EventLog.WriteEntry(EventSourceName, message, EventLogEntryType.Information, EventLogEntryId);
+            }
+            catch (Exception ex)
+            {
+                WriteLog($"Failed to write to application event log: {ex.Message}\n{ex.StackTrace}");
+            }
+        }
+
+        private static bool IsApplicationLogWritable(out string failureReason)
+        {
+            failureReason = string.Empty;
+
+            try
+            {
+                if (!EventLog.Exists(ApplicationLogName))
+                {
+                    failureReason = $"Event log '{ApplicationLogName}' does not exist.";
+                    return false;
+                }
+
+                if (!EventLog.SourceExists(EventSourceName))
+                {
+                    EventLog.CreateEventSource(new EventSourceCreationData(EventSourceName, ApplicationLogName));
+                    failureReason = $"Event source '{EventSourceName}' created. Restart the application to enable event logging.";
+                    return false;
+                }
+
+                using (EventLog eventLog = new EventLog(ApplicationLogName))
+                {
+                    eventLog.Source = EventSourceName;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                failureReason = ex.Message;
+                return false;
             }
         }
 
