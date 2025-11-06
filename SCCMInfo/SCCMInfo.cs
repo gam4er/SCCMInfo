@@ -17,6 +17,7 @@ namespace SCCMInfo
         private const string ApplicationLogName = "Application";
         private const string EventSourceName = "SCCMInfo";
         private const int EventLogEntryId = 2001;
+        internal const int SmsCombinedDeviceResourcesEventId = 2002;
 
         private static readonly IInstanceEnricher [] InstanceEnrichers =
         {
@@ -195,7 +196,7 @@ namespace SCCMInfo
             }
         }
 
-        private static void WriteApplicationEvent(string message)
+        internal static void WriteApplicationEvent(string message, int eventId = EventLogEntryId)
         {
             if (!IsApplicationLogWritable(out string failureReason))
             {
@@ -208,7 +209,7 @@ namespace SCCMInfo
 
             try
             {
-                EventLog.WriteEntry(EventSourceName, message, EventLogEntryType.Information, EventLogEntryId);
+                EventLog.WriteEntry(EventSourceName, message, EventLogEntryType.Information, eventId);
             }
             catch (Exception ex)
             {
