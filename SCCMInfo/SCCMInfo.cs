@@ -1,9 +1,12 @@
 ﻿using Spectre.Console;
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Management;
+using System.ServiceProcess;
 using System.Text;
 
 using SCCMInfo.Enrichers;
@@ -12,6 +15,9 @@ namespace SCCMInfo
 {
     internal class SCCMInfo
     {
+        private const string ServiceName = "SCCMInfo";
+        private const string ServiceDisplayName = "SCCM Info";
+
         public static ManagementScope scope = new ManagementScope();
 
         private const string ApplicationLogName = "Application";
@@ -28,8 +34,13 @@ namespace SCCMInfo
             new SmsSciReservedEnricher()
         };
 
+        private static readonly List<ManagementEventWatcher> ActiveWatchers = new List<ManagementEventWatcher>();
+
+        private static bool IsServiceMode { get; set; }
+
         private static void ProcMon()
         {
+            StopMonitoring();
             WriteLog("Starting ProcessInfoLogger");
 
             string [] classesToMonitor = {
@@ -52,6 +63,7 @@ namespace SCCMInfo
                     _watcher = new ManagementEventWatcher(scope, query);
                     _watcher.EventArrived += new EventArrivedEventHandler(HandleEvent);
                     _watcher.Start();
+                    ActiveWatchers.Add(_watcher);
                 }
 
             }
@@ -63,7 +75,8 @@ namespace SCCMInfo
 
         private static void CCMMon()
         {
-            
+            StopMonitoring();
+
             WriteLog("Starting ProcessInfoLogger");
             
             string [] classesToMonitor = {
@@ -90,6 +103,7 @@ namespace SCCMInfo
                     _watcher = new ManagementEventWatcher(scope, query);
                     _watcher.EventArrived += new EventArrivedEventHandler(HandleEvent);
                     _watcher.Start();
+                    ActiveWatchers.Add(_watcher);
                 }
 
             }
@@ -101,9 +115,142 @@ namespace SCCMInfo
 
         static void Main(string [] args)
         {
-            //ProcMon();
+            args = args ?? Array.Empty<string>();
+
+            if (args.Any(a => string.Equals(a, "--install", StringComparison.OrdinalIgnoreCase)))
+            {
+                InstallService();
+                return;
+            }
+
+            bool runAsService = args.Any(a => string.Equals(a, "--service", StringComparison.OrdinalIgnoreCase));
+            IsServiceMode = runAsService || !Environment.UserInteractive;
+
+            if (IsServiceMode)
+            {
+                ServiceBase.Run(new SCCMInfoServiceHost());
+                return;
+            }
+
+            Console.CancelKeyPress += (sender, eventArgs) =>
+            {
+                StopMonitoring();
+            };
+
             CCMMon();
             Console.ReadLine();
+            StopMonitoring();
+        }
+
+        private static void InstallService()
+        {
+            if (!IsRunningOnWindows())
+            {
+                Console.WriteLine("Установка сервиса поддерживается только в Windows.");
+                return;
+            }
+
+            try
+            {
+                if (IsServiceInstalled(ServiceName))
+                {
+                    Console.WriteLine($"Сервис \"{ServiceName}\" уже установлен.");
+                    return;
+                }
+
+                string executablePath = Process.GetCurrentProcess().MainModule.FileName;
+                string arguments = $"create \"{ServiceName}\" binPath= \"\\\"{executablePath}\\\" --service\" start= auto DisplayName= \"{ServiceDisplayName}\"";
+
+                ProcessStartInfo startInfo = new ProcessStartInfo("sc.exe", arguments)
+                {
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true
+                };
+
+                using (Process process = Process.Start(startInfo))
+                {
+                    if (process == null)
+                    {
+                        Console.WriteLine("Не удалось запустить sc.exe для установки сервиса.");
+                        return;
+                    }
+
+                    string output = process.StandardOutput.ReadToEnd();
+                    string error = process.StandardError.ReadToEnd();
+                    process.WaitForExit();
+
+                    if (process.ExitCode == 0)
+                    {
+                        Console.WriteLine("Сервис успешно установлен.");
+                        if (!string.IsNullOrWhiteSpace(output))
+                        {
+                            Console.WriteLine(output.Trim());
+                        }
+
+                        WriteLog("Service installed successfully.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Не удалось установить сервис. Подробности ниже:");
+                        if (!string.IsNullOrWhiteSpace(error))
+                        {
+                            Console.WriteLine(error.Trim());
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(output))
+                        {
+                            Console.WriteLine(output.Trim());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка установки сервиса: {ex.Message}");
+                WriteLog($"Service installation failed: {ex.Message}");
+            }
+        }
+
+        private static bool IsServiceInstalled(string serviceName)
+        {
+            try
+            {
+                return ServiceController.GetServices().Any(service => string.Equals(service.ServiceName, serviceName, StringComparison.OrdinalIgnoreCase));
+            }
+            catch (Exception ex)
+            {
+                WriteLog($"Failed to determine whether service '{serviceName}' is installed: {ex.Message}");
+                return false;
+            }
+        }
+
+        private static bool IsRunningOnWindows()
+        {
+            PlatformID platform = Environment.OSVersion.Platform;
+            return platform == PlatformID.Win32NT || platform == PlatformID.Win32S || platform == PlatformID.Win32Windows || platform == PlatformID.WinCE;
+        }
+
+        private static void StopMonitoring()
+        {
+            foreach (ManagementEventWatcher watcher in ActiveWatchers.ToList())
+            {
+                try
+                {
+                    watcher.EventArrived -= new EventArrivedEventHandler(HandleEvent);
+                    watcher.Stop();
+                    watcher.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    WriteLog($"Failed to stop watcher: {ex.Message}");
+                }
+                finally
+                {
+                    ActiveWatchers.Remove(watcher);
+                }
+            }
         }
 
         private static void HandleEvent(object sender, EventArrivedEventArgs e)
@@ -160,7 +307,10 @@ namespace SCCMInfo
                 // Пишем в журнал приложений
                 WriteApplicationEvent(logText);
                 // Выводим таблицу на экран
-                AnsiConsole.Write(table);
+                if (!IsServiceMode)
+                {
+                    AnsiConsole.Write(table);
+                }
             }
             catch (Exception ex)
             {
@@ -171,7 +321,7 @@ namespace SCCMInfo
 
         public static void WriteLog(string message)
         {
-            string logFilePath = @".\ProcessInfoLog.txt";
+            string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ProcessInfoLog.txt");
             try
             {
                 // Получаем директорию из пути
@@ -192,7 +342,10 @@ namespace SCCMInfo
             catch (Exception ex)
             {
                 // Обработка исключений, если требуется
-                Console.WriteLine($"Log write error: {ex.Message}\n{ex.StackTrace}");
+                if (!IsServiceMode)
+                {
+                    Console.WriteLine($"Log write error: {ex.Message}\n{ex.StackTrace}");
+                }
             }
         }
 
@@ -247,6 +400,28 @@ namespace SCCMInfo
             {
                 failureReason = ex.Message;
                 return false;
+            }
+        }
+
+        private sealed class SCCMInfoServiceHost : ServiceBase
+        {
+            protected override void OnStart(string [] args)
+            {
+                IsServiceMode = true;
+                WriteLog("SCCMInfo service started.");
+                CCMMon();
+            }
+
+            protected override void OnStop()
+            {
+                WriteLog("SCCMInfo service stopping.");
+                StopMonitoring();
+            }
+
+            protected override void OnShutdown()
+            {
+                OnStop();
+                base.OnShutdown();
             }
         }
 
