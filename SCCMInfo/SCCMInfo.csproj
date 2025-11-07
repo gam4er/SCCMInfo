@@ -9,6 +9,9 @@
     <RootNamespace>SCCMInfo</RootNamespace>
     <AssemblyName>SCCMInfo</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <!-- <TargetFramework>net48</TargetFramework> -->
+    <LangVersion>latest</LangVersion>   <!-- или latest / latestMajor / 9.0 / 10.0 и т.д. -->
+    <Nullable>enable</Nullable>       <!-- включает аннотации и предупреждения по null -->
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
