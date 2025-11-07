@@ -57,7 +57,7 @@ namespace SCCMInfo.Enrichers
             global::SCCMInfo.SCCMInfo.WriteApplicationEvent(eventLogMessage, global::SCCMInfo.SCCMInfo.SmsCombinedDeviceResourcesEventId);
         }
 
-        private static string FormatPropertyValue(object? value)
+        private static string FormatPropertyValue(object value)
         {
             if (value == null)
             {
@@ -73,7 +73,7 @@ namespace SCCMInfo.Enrichers
             {
                 List<string> formattedItems = new List<string>();
 
-                foreach (object? item in arrayValue)
+                foreach (object item in arrayValue)
                 {
                     string formattedItem = FormatPropertyValue(item);
                     if (!string.IsNullOrWhiteSpace(formattedItem))
