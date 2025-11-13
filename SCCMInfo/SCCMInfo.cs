@@ -1,20 +1,46 @@
 ﻿using Spectre.Console;
 
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Management;
+using System.ServiceProcess;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml;
+
+using SCCMInfo.Enrichers;
 
 namespace SCCMInfo
 {
     internal class SCCMInfo
     {
+        private const string ServiceName = "SCCMInfo";
+        private const string ServiceDisplayName = "SCCM Info";
+
         public static ManagementScope scope = new ManagementScope();
+
+        private const string ApplicationLogName = "Application";
+        private const string EventSourceName = "SCCMInfo";
+        private const int EventLogEntryId = 2001;
+        internal const int SmsCombinedDeviceResourcesEventId = 2002;
+
+        private static readonly IInstanceEnricher [] InstanceEnrichers =
+        {
+            new SmsDeploymentInfoEnricher(),
+            new SmsCombinedDeviceResourcesEnricher(),
+            new SmsAdminEnricher(),
+            new SmsScriptsEnricher(),
+            new SmsSciReservedEnricher()
+        };
+
+        private static readonly List<ManagementEventWatcher> ActiveWatchers = new List<ManagementEventWatcher>();
+
+        private static bool IsServiceMode { get; set; }
 
         private static void ProcMon()
         {
+            StopMonitoring();
             WriteLog("Starting ProcessInfoLogger");
 
             string [] classesToMonitor = {
@@ -37,6 +63,7 @@ namespace SCCMInfo
                     _watcher = new ManagementEventWatcher(scope, query);
                     _watcher.EventArrived += new EventArrivedEventHandler(HandleEvent);
                     _watcher.Start();
+                    ActiveWatchers.Add(_watcher);
                 }
 
             }
@@ -48,7 +75,8 @@ namespace SCCMInfo
 
         private static void CCMMon()
         {
-            
+            StopMonitoring();
+
             WriteLog("Starting ProcessInfoLogger");
             
             string [] classesToMonitor = {
@@ -75,6 +103,7 @@ namespace SCCMInfo
                     _watcher = new ManagementEventWatcher(scope, query);
                     _watcher.EventArrived += new EventArrivedEventHandler(HandleEvent);
                     _watcher.Start();
+                    ActiveWatchers.Add(_watcher);
                 }
 
             }
@@ -86,9 +115,142 @@ namespace SCCMInfo
 
         static void Main(string [] args)
         {
-            //ProcMon();
+            args = args ?? Array.Empty<string>();
+
+            if (args.Any(a => string.Equals(a, "--install", StringComparison.OrdinalIgnoreCase)))
+            {
+                InstallService();
+                return;
+            }
+
+            bool runAsService = args.Any(a => string.Equals(a, "--service", StringComparison.OrdinalIgnoreCase));
+            IsServiceMode = runAsService || !Environment.UserInteractive;
+
+            if (IsServiceMode)
+            {
+                ServiceBase.Run(new SCCMInfoServiceHost());
+                return;
+            }
+
+            Console.CancelKeyPress += (sender, eventArgs) =>
+            {
+                StopMonitoring();
+            };
+
             CCMMon();
             Console.ReadLine();
+            StopMonitoring();
+        }
+
+        private static void InstallService()
+        {
+            if (!IsRunningOnWindows())
+            {
+                Console.WriteLine("Установка сервиса поддерживается только в Windows.");
+                return;
+            }
+
+            try
+            {
+                if (IsServiceInstalled(ServiceName))
+                {
+                    Console.WriteLine($"Сервис \"{ServiceName}\" уже установлен.");
+                    return;
+                }
+
+                string executablePath = Process.GetCurrentProcess().MainModule.FileName;
+                string arguments = $"create \"{ServiceName}\" binPath= \"\\\"{executablePath}\\\" --service\" start= auto DisplayName= \"{ServiceDisplayName}\"";
+
+                ProcessStartInfo startInfo = new ProcessStartInfo("sc.exe", arguments)
+                {
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true
+                };
+
+                using (Process process = Process.Start(startInfo))
+                {
+                    if (process == null)
+                    {
+                        Console.WriteLine("Не удалось запустить sc.exe для установки сервиса.");
+                        return;
+                    }
+
+                    string output = process.StandardOutput.ReadToEnd();
+                    string error = process.StandardError.ReadToEnd();
+                    process.WaitForExit();
+
+                    if (process.ExitCode == 0)
+                    {
+                        Console.WriteLine("Сервис успешно установлен.");
+                        if (!string.IsNullOrWhiteSpace(output))
+                        {
+                            Console.WriteLine(output.Trim());
+                        }
+
+                        WriteLog("Service installed successfully.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Не удалось установить сервис. Подробности ниже:");
+                        if (!string.IsNullOrWhiteSpace(error))
+                        {
+                            Console.WriteLine(error.Trim());
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(output))
+                        {
+                            Console.WriteLine(output.Trim());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка установки сервиса: {ex.Message}");
+                WriteLog($"Service installation failed: {ex.Message}");
+            }
+        }
+
+        private static bool IsServiceInstalled(string serviceName)
+        {
+            try
+            {
+                return ServiceController.GetServices().Any(service => string.Equals(service.ServiceName, serviceName, StringComparison.OrdinalIgnoreCase));
+            }
+            catch (Exception ex)
+            {
+                WriteLog($"Failed to determine whether service '{serviceName}' is installed: {ex.Message}");
+                return false;
+            }
+        }
+
+        private static bool IsRunningOnWindows()
+        {
+            PlatformID platform = Environment.OSVersion.Platform;
+            return platform == PlatformID.Win32NT || platform == PlatformID.Win32S || platform == PlatformID.Win32Windows || platform == PlatformID.WinCE;
+        }
+
+        private static void StopMonitoring()
+        {
+            foreach (ManagementEventWatcher watcher in ActiveWatchers.ToList())
+            {
+                try
+                {
+                    watcher.EventArrived -= new EventArrivedEventHandler(HandleEvent);
+                    watcher.Stop();
+                    watcher.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    WriteLog($"Failed to stop watcher: {ex.Message}");
+                }
+                finally
+                {
+                    ActiveWatchers.Remove(watcher);
+                }
+            }
         }
 
         private static void HandleEvent(object sender, EventArrivedEventArgs e)
@@ -128,215 +290,27 @@ namespace SCCMInfo
 
                 logMessage.AppendLine();
 
-                // Если класс объекта SMS_DeploymentInfo, получаем связанные данные
-                if (targetInstance.ClassPath.ClassName == "SMS_DeploymentInfo")
+                foreach (IInstanceEnricher enricher in InstanceEnrichers)
                 {
-                    string collectionID = targetInstance ["CollectionID"]?.ToString();
-                    string targetName = targetInstance ["TargetName"]?.ToString();
-                    string deploymentName = targetInstance ["DeploymentName"]?.ToString();
-                    string collectionName = targetInstance ["CollectionName"]?.ToString();
-
-                    // Добавляем информацию в таблицу
-                    table.AddRow("CollectionID", collectionID);
-                    table.AddRow("CollectionName", collectionName);
-
-                    // Получаем директорию для файлов
-                    //string logDirectory = "c:\\temp";
-
-
-                    string queryString = $"SELECT * FROM SMS_FullCollectionMembership WHERE CollectionID='{collectionID}'";
-                    ObjectQuery query = new ObjectQuery(queryString);
-                    ManagementObjectSearcher searcher = new ManagementObjectSearcher(scope, query);
-
-                    ManagementObjectCollection collectionMembers = searcher.Get();
-
-                    // Создаем CSV данные
-                    var csvData = new StringBuilder();
-                    csvData.AppendLine("Name,ResourceID,ResourceType,ResourceDomainORWorkgroup,LastChangeTime,IsDirect");
-
-                    foreach (ManagementObject member in collectionMembers)
+                    if (string.Equals(enricher.ClassName, targetInstance.ClassPath.ClassName, StringComparison.OrdinalIgnoreCase))
                     {
-                        member.Get();
-                        string name = "";
-                        string resourceID = "";
-                        string resourceType = "";
-                        string domain = "";
-                        string isClient = "";
-                        string isActive = "";
-                        string isApproved = "";
-                        string isBlocked = "";
-
-                        try { name = member ["Name"]?.ToString() ?? ""; }
-                        catch { /* игнорируем */ }
-
-                        try { resourceID = member ["ResourceID"]?.ToString() ?? ""; }
-                        catch { /* игнорируем */ }
-
-                        try { resourceType = member ["ResourceType"]?.ToString() ?? ""; }
-                        catch { /* игнорируем */ }
-
-                        try { domain = member ["Domain"]?.ToString() ?? ""; }
-                        catch { /* игнорируем */ }
-
-                        try { isClient = member ["IsClient"]?.ToString() ?? ""; }
-                        catch { /* игнорируем */ }
-
-                        try { isActive = member ["IsActive"]?.ToString() ?? ""; }
-                        catch { /* игнорируем */ }
-
-                        try { isApproved = member ["IsApproved"]?.ToString() ?? ""; }
-                        catch { /* игнорируем */ }
-
-                        try { isBlocked = member ["IsBlocked"]?.ToString() ?? ""; }
-                        catch { /* игнорируем */ }
-
-                        csvData.AppendLine($"{name},{resourceID},{resourceType},{domain},{isClient},{isActive},{isApproved},{isBlocked}");
-                    }
-
-                    // Сохраняем CSV файл
-                    string csvFileName = $"{deploymentName}_{collectionID}.csv";                    
-                    File.WriteAllText(csvFileName, csvData.ToString());
-
-                    int membersCount = collectionMembers.Count;
-                    table.AddRow("CollectionMembersCount", membersCount.ToString());
-                    table.AddRow("CollectionMembersFile", csvFileName);
-
-
-                    logMessage.AppendLine($"Collection members info saved to file {csvFileName}, total members: {membersCount}");
-                    logMessage.AppendLine($"Collection Name: {collectionName}, ID: {collectionID}");
-
-                    // Get Application Information                    
-                    string appQueryStr = $"SELECT * FROM SMS_ApplicationLatest WHERE LocalizedDisplayName LIKE '{targetName}'";
-
-                    ObjectQuery appQuery = new ObjectQuery(appQueryStr);
-                    ManagementObjectSearcher appSearcher = new ManagementObjectSearcher(scope, appQuery);
-                    ManagementObjectCollection applications = appSearcher.Get();
-
-                    ManagementObject application = null;
-                    foreach (ManagementObject app_in_collection in applications)
-                    {
-                        try
-                        {
-                            application = app_in_collection;
-                            application.Get();
-                            logMessage.AppendLine("App refreshed");
-                            // Get SDMPackageXML property
-                            string sdmPackageXml = application ["SDMPackageXML"]?.ToString();                             
-                            logMessage.AppendLine($"sdmPackageXml gotted");
-                            try
-                            {
-                                XmlDocument xmlDoc = new XmlDocument();
-                                xmlDoc.LoadXml(sdmPackageXml);
-
-                                // Sanitize file name
-                                string safeName = Regex.Replace(targetName, @"[\\/:*?""<>|\r\n]+", "_");
-                                safeName = Regex.Replace(safeName, @"\s+", "_");
-                                string xmlFileName = $"{deploymentName}_{safeName}.xml";
-
-                                // Save XML to file
-                                xmlDoc.Save(xmlFileName);
-                                logMessage.AppendLine($"Application info saved to file {xmlFileName}");
-
-                                // Extract information from XML
-                                XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
-                                nsmgr.AddNamespace("ab", "http://schemas.microsoft.com/SystemCenterConfigurationManager/2009/AppMgmtDigest");
-
-                                XmlNode appMgmtDigest = xmlDoc.SelectSingleNode("//ab:AppMgmtDigest", nsmgr);
-                                if (appMgmtDigest != null)
-                                {
-
-                                    string appName = appMgmtDigest.SelectSingleNode("ab:Name", nsmgr)?.InnerText ?? "";
-                                    string appVersion = appMgmtDigest.SelectSingleNode("ab:Version", nsmgr)?.InnerText ?? "";
-                                    string appPublisher = appMgmtDigest.SelectSingleNode("ab:Publisher", nsmgr)?.InnerText ?? "";
-                                    string appInstallDate = appMgmtDigest.SelectSingleNode("ab:InstallDate", nsmgr)?.InnerText ?? "";
-                                    string appInstallSource = appMgmtDigest.SelectSingleNode("ab:InstallSource", nsmgr)?.InnerText ?? "";
-                                                                        
-                                    // Добавляем информацию в таблицу
-                                    table.AddRow("ApplicationName", appName);
-                                    table.AddRow("ApplicationVersion", appVersion);
-                                    table.AddRow("ApplicationPublisher", appPublisher);
-                                    table.AddRow("ApplicationInstallDate", appInstallDate);
-                                    table.AddRow("ApplicationInstallSource", appInstallSource);
-                                    // Добавляем путь к файлу в таблицу
-                                    table.AddRow("ApplicationXMLFile", xmlFileName);
-                                    logMessage.AppendLine($"Application info saved to vars");
-
-                                    try
-                                    {
-                                        // Get Install Arguments
-                                        XmlNodeList argNodes = xmlDoc.SelectNodes("//ab:DeploymentType/ab:Installer/ab:InstallAction/ab:Args/ab:Arg", nsmgr);
-                                        foreach (XmlNode argNode in argNodes)
-                                        {
-                                            string argName = argNode.Attributes ["Name"]?.Value;
-                                            string argText = argNode.InnerText;
-                                            logMessage.AppendLine($"And that application install arguments:       '{argName}' '{argText}'");
-                                            table.AddRow(argName, argText);
-                                        }
-                                        logMessage.AppendLine($"Application Install Arguments saved");
-                                    } 
-                                    catch {
-                                        logMessage.AppendLine("Error while processing properties SMS_ApplicationLatest: Install Arguments not found");
-                                    }
-
-                                    try
-                                    {
-                                        // Get CommandLineArg
-                                        XmlNode commandLineArgNode = xmlDoc.SelectSingleNode("//ab:DeploymentType/ab:Installer/ab:InstallAction/ab:Args/ab:Arg[@Name='CommandLine']", nsmgr);
-                                        string commandLineArg = commandLineArgNode?.InnerText;
-                                        table.AddRow("application command line", commandLineArg);
-                                        logMessage.AppendLine($"And that application command line:             '{commandLineArg}'");
-                                    }
-                                    catch
-                                    {
-                                        logMessage.AppendLine("Error while processing properties SMS_ApplicationLatest: CommandLineArg not found");
-                                    }
-
-                                    try
-                                    {
-                                        // Get InstallCommandLine
-                                        string installCommandLine = xmlDoc.SelectSingleNode("//ab:DeploymentType/ab:Installer/ab:CustomData/ab:InstallCommandLine", nsmgr)?.InnerText;
-                                        logMessage.AppendLine($"And that application install command line:     '{installCommandLine}'");
-                                        table.AddRow("application install command line", installCommandLine);
-                                    }
-                                    catch
-                                    {
-                                        logMessage.AppendLine("Error while processing properties SMS_ApplicationLatest: InstallCommandLine not found");
-                                    }
-
-                                    try
-                                    {
-                                        // Get UninstallCommandLine
-                                        string uninstallCommandLine = xmlDoc.SelectSingleNode("//ab:DeploymentType/ab:Installer/ab:CustomData/ab:UninstallCommandLine", nsmgr)?.InnerText;
-                                        logMessage.AppendLine($"And that application uninstall command line:   '{uninstallCommandLine}'");
-                                        table.AddRow("application uninstall command line", uninstallCommandLine);
-                                    }
-                                    catch
-                                    {
-                                        logMessage.AppendLine("Error while processing properties SMS_ApplicationLatest: UninstallCommandLine not found");
-                                    }
-                                }
-                                else
-                                {
-                                    logMessage.AppendLine("Error while processing properties SMS_ApplicationLatest: AppMgmtDigest not found");
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                logMessage.AppendLine($"Error while processing properties SMS_ApplicationLatest: {ex.Message}");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            logMessage.AppendLine($"Error while getting properties SMS_ApplicationLatest: {ex.Message}");
-                        }
+                        enricher.Enrich(targetInstance, table, logMessage, scope);
                         break;
-                    }                    
+                    }
                 }
 
+                string logText = logMessage.ToString();
+
                 // Записываем в лог
-                WriteLog(logMessage.ToString());
+                WriteLog(logText);
+
+                // Пишем в журнал приложений
+                WriteApplicationEvent(logText);
                 // Выводим таблицу на экран
-                AnsiConsole.Write(table);
+                if (!IsServiceMode)
+                {
+                    AnsiConsole.Write(table);
+                }
             }
             catch (Exception ex)
             {
@@ -347,7 +321,7 @@ namespace SCCMInfo
 
         public static void WriteLog(string message)
         {
-            string logFilePath = @".\ProcessInfoLog.txt";
+            string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ProcessInfoLog.txt");
             try
             {
                 // Получаем директорию из пути
@@ -368,7 +342,86 @@ namespace SCCMInfo
             catch (Exception ex)
             {
                 // Обработка исключений, если требуется
-                Console.WriteLine($"Log write error: {ex.Message}\n{ex.StackTrace}");
+                if (!IsServiceMode)
+                {
+                    Console.WriteLine($"Log write error: {ex.Message}\n{ex.StackTrace}");
+                }
+            }
+        }
+
+        internal static void WriteApplicationEvent(string message, int eventId = EventLogEntryId)
+        {
+            if (!IsApplicationLogWritable(out string failureReason))
+            {
+                if (!string.IsNullOrWhiteSpace(failureReason))
+                {
+                    WriteLog($"Application event log is not writable: {failureReason}");
+                }
+                return;
+            }
+
+            try
+            {
+                EventLog.WriteEntry(EventSourceName, message, EventLogEntryType.Information, eventId);
+            }
+            catch (Exception ex)
+            {
+                WriteLog($"Failed to write to application event log: {ex.Message}\n{ex.StackTrace}");
+            }
+        }
+
+        private static bool IsApplicationLogWritable(out string failureReason)
+        {
+            failureReason = string.Empty;
+
+            try
+            {
+                if (!EventLog.Exists(ApplicationLogName))
+                {
+                    failureReason = $"Event log '{ApplicationLogName}' does not exist.";
+                    return false;
+                }
+
+                if (!EventLog.SourceExists(EventSourceName))
+                {
+                    EventLog.CreateEventSource(new EventSourceCreationData(EventSourceName, ApplicationLogName));
+                    failureReason = $"Event source '{EventSourceName}' created. Restart the application to enable event logging.";
+                    return false;
+                }
+
+                using (EventLog eventLog = new EventLog(ApplicationLogName))
+                {
+                    eventLog.Source = EventSourceName;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                failureReason = ex.Message;
+                return false;
+            }
+        }
+
+        private sealed class SCCMInfoServiceHost : ServiceBase
+        {
+            protected override void OnStart(string [] args)
+            {
+                IsServiceMode = true;
+                WriteLog("SCCMInfo service started.");
+                CCMMon();
+            }
+
+            protected override void OnStop()
+            {
+                WriteLog("SCCMInfo service stopping.");
+                StopMonitoring();
+            }
+
+            protected override void OnShutdown()
+            {
+                OnStop();
+                base.OnShutdown();
             }
         }
 
