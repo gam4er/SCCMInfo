@@ -41,7 +41,6 @@ monitoring.
 | Path | Description |
 | --- | --- |
 | `SCCMInfo/` | Source code for the console application and Windows service. |
-| `SCCMInfo.sln` | Visual Studio solution targeting .NET Framework 4.8. |
 | `LICENSE.txt` | Project license. |
 
 ## Prerequisites
