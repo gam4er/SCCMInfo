@@ -1,5 +1,7 @@
 using Spectre.Console;
 
+using Spectre.Console;
+
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -21,7 +23,7 @@ namespace SCCMInfo.Enrichers
         {
             if (targetInstance == null)
             {
-                table.AddRow("Enrichment", "SMS_Admin enrichment: target instance is null.");
+                global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "Enrichment", "SMS_Admin enrichment: target instance is null.");
                 logMessage.AppendLine("SMS_Admin enrichment failed because target instance was null.");
                 return;
             }
@@ -117,7 +119,7 @@ namespace SCCMInfo.Enrichers
             else
             {
                 const string noDataMessage = "SMS_Admin enrichment: no non-empty properties were found.";
-                table.AddRow("Enrichment", noDataMessage);
+                global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "Enrichment", noDataMessage);
                 logMessage.AppendLine(noDataMessage);
             }
         }
@@ -182,11 +184,11 @@ namespace SCCMInfo.Enrichers
 
             if (!headerAdded)
             {
-                table.AddRow("[bold yellow]Enrichment[/]", "[bold yellow]SMS_Admin details[/]");
+                global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "Enrichment", "SMS_Admin details");
                 headerAdded = true;
             }
 
-            table.AddRow(propertyName, propertyValue);
+            global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, propertyName, propertyValue);
             AppendToLog(enrichmentLog, propertyName, propertyValue);
         }
 
