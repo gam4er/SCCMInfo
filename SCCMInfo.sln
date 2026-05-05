@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeploymentInfoLogger", "Dep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListAllApps", "ListAllApps\ListAllApps.csproj", "{74505CDD-C3FD-4F9A-839F-7E84CC3A6B47}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddSiteAdmin", "AddSiteAdmin", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
+	ProjectSection(SolutionItems) = preProject
+		AddSiteAdmin\AddSMSAdmin_Hybrid.ps1 = AddSiteAdmin\AddSMSAdmin_Hybrid.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
