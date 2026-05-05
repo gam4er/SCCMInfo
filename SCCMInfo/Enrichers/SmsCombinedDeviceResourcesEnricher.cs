@@ -1,5 +1,7 @@
 using Spectre.Console;
 
+using Spectre.Console;
+
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -32,29 +34,24 @@ namespace SCCMInfo.Enrichers
 
                 if (!headerAdded)
                 {
-                    table.AddRow("[bold yellow]Enrichment[/]", "[bold yellow]SMS_CombinedDeviceResources non-empty properties[/]");
+                    global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "Enrichment", "SMS_CombinedDeviceResources non-empty properties");
                     headerAdded = true;
                 }
 
-                table.AddRow(property.Name, propertyValue);
+                global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, property.Name, propertyValue);
                 enrichmentLog.AppendLine($"{property.Name.PadRight(30)}\t{propertyValue}");
             }
 
             if (!headerAdded)
             {
                 const string noPropertiesMessage = "SMS_CombinedDeviceResources enrichment: no non-empty properties were found.";
-                table.AddRow("Enrichment", noPropertiesMessage);
+                global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "Enrichment", noPropertiesMessage);
                 logMessage.AppendLine(noPropertiesMessage);
-                global::SCCMInfo.SCCMInfo.WriteApplicationEvent(noPropertiesMessage, global::SCCMInfo.SCCMInfo.SmsCombinedDeviceResourcesEventId);
                 return;
             }
 
-            string enrichmentHeader = "SMS_CombinedDeviceResources enrichment results:";
-            logMessage.AppendLine(enrichmentHeader);
+            logMessage.AppendLine("SMS_CombinedDeviceResources enrichment results:");
             logMessage.Append(enrichmentLog);
-
-            string eventLogMessage = $"{enrichmentHeader}{Environment.NewLine}{enrichmentLog}";
-            global::SCCMInfo.SCCMInfo.WriteApplicationEvent(eventLogMessage, global::SCCMInfo.SCCMInfo.SmsCombinedDeviceResourcesEventId);
         }
 
         private static string FormatPropertyValue(object value)
@@ -71,7 +68,7 @@ namespace SCCMInfo.Enrichers
 
             if (value is Array arrayValue)
             {
-                List<string> formattedItems = new List<string>();
+                var formattedItems = new List<string>();
 
                 foreach (object item in arrayValue)
                 {

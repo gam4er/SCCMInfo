@@ -1,5 +1,7 @@
 using Spectre.Console;
 
+using Spectre.Console;
+
 using System.Management;
 using System.Text;
 
@@ -15,7 +17,7 @@ namespace SCCMInfo.Enrichers
             StringBuilder logMessage,
             ManagementScope scope)
         {
-            table.AddRow("Enrichment", "No enrichment implemented yet for SMS_Scripts");
+            global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "Enrichment", "No enrichment implemented yet for SMS_Scripts");
             logMessage.AppendLine("SMS_Scripts enrichment stub executed");
         }
     }

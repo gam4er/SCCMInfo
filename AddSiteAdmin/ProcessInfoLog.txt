@@ -1,0 +1,1231 @@
+﻿2026-05-05 14:30:54.909 | startup | application start; args=
+2026-05-05 14:30:54.911 | startup | service mode=False
+2026-05-05 14:30:54.913 | monitor | ccm monitor start requested
+2026-05-05 14:30:54.939 | wmi connection | management point=sccm.gam.click; siteCode=GAM
+2026-05-05 14:30:54.940 | wmi connection | connecting to \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 14:30:54.967 | wmi connection | connection established to \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 14:30:54.967 | monitor | ccm monitor scope: \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 14:30:55.223 | monitor | watcher started: class=SMS_DeploymentInfo; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_DeploymentInfo'
+2026-05-05 14:30:55.402 | monitor | watcher started: class=SMS_CombinedDeviceResources; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_CombinedDeviceResources'
+2026-05-05 14:30:55.501 | monitor | watcher started: class=SMS_Admin; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_Admin'
+2026-05-05 14:30:55.588 | monitor | watcher started: class=SMS_Scripts; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_Scripts'
+2026-05-05 14:30:55.662 | monitor | watcher started: class=SMS_SCI_Reserved; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_SCI_Reserved'
+2026-05-05 14:31:24.975 | monitor | watcher stopped successfully
+2026-05-05 14:31:24.975 | monitor | watcher stopped successfully
+2026-05-05 14:31:24.978 | monitor | watcher stopped successfully
+2026-05-05 14:31:24.979 | monitor | watcher stopped successfully
+2026-05-05 14:31:24.979 | monitor | watcher stopped successfully
+2026-05-05 15:19:32.028 | startup | application start; args=
+2026-05-05 15:19:32.033 | startup | service mode=False
+2026-05-05 15:19:32.038 | monitor | ccm monitor start requested
+2026-05-05 15:19:32.057 | wmi connection | management point=sccm.gam.click; siteCode=GAM
+2026-05-05 15:19:32.058 | wmi connection | connecting to \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 15:19:32.077 | wmi connection | connection established to \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 15:19:32.077 | monitor | ccm monitor scope: \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 15:19:32.199 | monitor | watcher started: class=SMS_DeploymentInfo; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_DeploymentInfo'
+2026-05-05 15:19:32.268 | monitor | watcher started: class=SMS_CombinedDeviceResources; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_CombinedDeviceResources'
+2026-05-05 15:19:32.359 | monitor | watcher started: class=SMS_Admin; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_Admin'
+2026-05-05 15:19:32.432 | monitor | watcher started: class=SMS_Scripts; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_Scripts'
+2026-05-05 15:19:32.506 | monitor | watcher started: class=SMS_SCI_Reserved; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_SCI_Reserved'
+2026-05-05 15:19:41.204 | capture event | capture event start
+2026-05-05 15:19:41.204 | capture event | capture event timestamp: 2026-05-05 15:19:41.102
+2026-05-05 15:19:41.204 | capture event | capture event sender type: System.Management.ManagementEventWatcher
+2026-05-05 15:19:41.204 | capture event | capture event envelope:
+2026-05-05 15:19:41.204 | capture event |   {
+2026-05-05 15:19:41.204 | capture event |     SECURITY_DESCRIPTOR = <null>,
+2026-05-05 15:19:41.204 | capture event |     TargetInstance = {
+2026-05-05 15:19:41.204 | capture event |       AccountType = 0,
+2026-05-05 15:19:41.204 | capture event |       AdminID = 16777228,
+2026-05-05 15:19:41.204 | capture event |       AdminSid = S-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 15:19:41.204 | capture event |       Categories = <null>,
+2026-05-05 15:19:41.204 | capture event |       CategoryNames = [
+2026-05-05 15:19:41.204 | capture event |         All
+2026-05-05 15:19:41.204 | capture event |       ],
+2026-05-05 15:19:41.204 | capture event |       CollectionNames = [
+2026-05-05 15:19:41.204 | capture event |         All Systems,
+2026-05-05 15:19:41.204 | capture event |         All Users and User Groups
+2026-05-05 15:19:41.204 | capture event |       ],
+2026-05-05 15:19:41.204 | capture event |       CreatedBy = gam\LOGAN_CABRERA,
+2026-05-05 15:19:41.204 | capture event |       CreatedDate = 20260505121940.000000+000,
+2026-05-05 15:19:41.204 | capture event |       DisplayName = EDWARD_MONTOYA,
+2026-05-05 15:19:41.204 | capture event |       DistinguishedName = CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click,
+2026-05-05 15:19:41.204 | capture event |       ExtendedData = <null>,
+2026-05-05 15:19:41.204 | capture event |       IsCovered = <null>,
+2026-05-05 15:19:41.204 | capture event |       IsDeleted = false,
+2026-05-05 15:19:41.204 | capture event |       IsGroup = false,
+2026-05-05 15:19:41.204 | capture event |       LastModifiedBy = gam\LOGAN_CABRERA,
+2026-05-05 15:19:41.204 | capture event |       LastModifiedDate = 20260505121940.000000+000,
+2026-05-05 15:19:41.204 | capture event |       LogonName = gam\EDWARD_MONTOYA,
+2026-05-05 15:19:41.204 | capture event |       Permissions = <null>,
+2026-05-05 15:19:41.204 | capture event |       RoleNames = [
+2026-05-05 15:19:41.204 | capture event |         Full Administrator
+2026-05-05 15:19:41.204 | capture event |       ],
+2026-05-05 15:19:41.204 | capture event |       Roles = <null>,
+2026-05-05 15:19:41.204 | capture event |       SKey = GAMS-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 15:19:41.204 | capture event |       SourceSite = GAM
+2026-05-05 15:19:41.204 | capture event |     },
+2026-05-05 15:19:41.204 | capture event |     TIME_CREATED = 134224571810856827
+2026-05-05 15:19:41.204 | capture event |   }
+2026-05-05 15:19:41.204 | capture event | capture event class: SMS_Admin
+2026-05-05 15:19:41.204 | capture event | capture event target instance properties:
+2026-05-05 15:19:41.204 | capture event |   property name: AccountType
+2026-05-05 15:19:41.204 | capture event |   property type: UInt32
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     0
+2026-05-05 15:19:41.204 | capture event |   property name: AdminID
+2026-05-05 15:19:41.204 | capture event |   property type: UInt32
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     16777228
+2026-05-05 15:19:41.204 | capture event |   property name: AdminSid
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 15:19:41.204 | capture event |   property name: Categories
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     <null>
+2026-05-05 15:19:41.204 | capture event |   property name: CategoryNames
+2026-05-05 15:19:41.204 | capture event |   property type: String[]
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     [
+2026-05-05 15:19:41.204 | capture event |       All
+2026-05-05 15:19:41.204 | capture event |     ]
+2026-05-05 15:19:41.204 | capture event |   property name: CollectionNames
+2026-05-05 15:19:41.204 | capture event |   property type: String[]
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     [
+2026-05-05 15:19:41.204 | capture event |       All Systems,
+2026-05-05 15:19:41.204 | capture event |       All Users and User Groups
+2026-05-05 15:19:41.204 | capture event |     ]
+2026-05-05 15:19:41.204 | capture event |   property name: CreatedBy
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 15:19:41.204 | capture event |   property name: CreatedDate
+2026-05-05 15:19:41.204 | capture event |   property type: DateTime
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     20260505121940.000000+000
+2026-05-05 15:19:41.204 | capture event |   property name: DisplayName
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     EDWARD_MONTOYA
+2026-05-05 15:19:41.204 | capture event |   property name: DistinguishedName
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click
+2026-05-05 15:19:41.204 | capture event |   property name: ExtendedData
+2026-05-05 15:19:41.204 | capture event |   property type: Object
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     <null>
+2026-05-05 15:19:41.204 | capture event |   property name: IsCovered
+2026-05-05 15:19:41.204 | capture event |   property type: Boolean
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     <null>
+2026-05-05 15:19:41.204 | capture event |   property name: IsDeleted
+2026-05-05 15:19:41.204 | capture event |   property type: Boolean
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     false
+2026-05-05 15:19:41.204 | capture event |   property name: IsGroup
+2026-05-05 15:19:41.204 | capture event |   property type: Boolean
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     false
+2026-05-05 15:19:41.204 | capture event |   property name: LastModifiedBy
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 15:19:41.204 | capture event |   property name: LastModifiedDate
+2026-05-05 15:19:41.204 | capture event |   property type: DateTime
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     20260505121940.000000+000
+2026-05-05 15:19:41.204 | capture event |   property name: LogonName
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     gam\EDWARD_MONTOYA
+2026-05-05 15:19:41.204 | capture event |   property name: Permissions
+2026-05-05 15:19:41.204 | capture event |   property type: Object
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     <null>
+2026-05-05 15:19:41.204 | capture event |   property name: RoleNames
+2026-05-05 15:19:41.204 | capture event |   property type: String[]
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     [
+2026-05-05 15:19:41.204 | capture event |       Full Administrator
+2026-05-05 15:19:41.204 | capture event |     ]
+2026-05-05 15:19:41.204 | capture event |   property name: Roles
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     <null>
+2026-05-05 15:19:41.204 | capture event |   property name: SKey
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 15:19:41.204 | capture event |   property name: SourceSite
+2026-05-05 15:19:41.204 | capture event |   property type: String
+2026-05-05 15:19:41.204 | capture event |   property value:
+2026-05-05 15:19:41.204 | capture event |     GAM
+2026-05-05 15:19:41.204 | capture event | enrich start: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 15:19:41.204 | capture event | SMS_Admin enrichment results:
+2026-05-05 15:19:41.204 | capture event | Account Type: 0
+2026-05-05 15:19:41.204 | capture event | Admin ID: 16777228
+2026-05-05 15:19:41.204 | capture event | Admin Sid: S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 15:19:41.204 | capture event | Category Names: All
+2026-05-05 15:19:41.204 | capture event | Collection Names: All Systems
+2026-05-05 15:19:41.204 | capture event |                   All Users and User Groups
+2026-05-05 15:19:41.204 | capture event | Created By: gam\LOGAN_CABRERA
+2026-05-05 15:19:41.204 | capture event | Created Date: 2026-05-05 18:19:40Z
+2026-05-05 15:19:41.204 | capture event | Display Name: EDWARD_MONTOYA
+2026-05-05 15:19:41.204 | capture event | Distinguished Name: CN: EDWARD_MONTOYA
+2026-05-05 15:19:41.204 | capture event |                     OU: ServiceAccounts
+2026-05-05 15:19:41.204 | capture event |                     OU: FSR
+2026-05-05 15:19:41.204 | capture event |                     OU: Tier 2
+2026-05-05 15:19:41.204 | capture event |                     DC: gam
+2026-05-05 15:19:41.204 | capture event |                     DC: click
+2026-05-05 15:19:41.204 | capture event | Is Deleted: No
+2026-05-05 15:19:41.204 | capture event | Is Group: No
+2026-05-05 15:19:41.204 | capture event | Last Modified By: gam\LOGAN_CABRERA
+2026-05-05 15:19:41.204 | capture event | Last Modified Date: 2026-05-05 18:19:40Z
+2026-05-05 15:19:41.204 | capture event | Logon Name: gam\EDWARD_MONTOYA
+2026-05-05 15:19:41.204 | capture event | Role Names: Full Administrator
+2026-05-05 15:19:41.204 | capture event | SKey: GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 15:19:41.204 | capture event | Source Site: GAM
+2026-05-05 15:19:41.204 | capture event | enrich completed: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 15:19:41.204 | capture event | capture event property count: 22
+2026-05-05 15:19:41.204 | capture event | 
+2026-05-05 15:19:41.204 | write event | application event summary prepared: capture event summary: class=SMS_Admin; properties=22; capture=success; enrich=success; serviceMode=False
+2026-05-05 15:19:41.217 | write event | application event written successfully; eventId=2001
+2026-05-05 16:14:33.782 | capture event | capture event start
+2026-05-05 16:14:33.782 | capture event | capture event timestamp: 2026-05-05 16:14:33.770
+2026-05-05 16:14:33.782 | capture event | capture event sender type: System.Management.ManagementEventWatcher
+2026-05-05 16:14:33.782 | capture event | capture event envelope:
+2026-05-05 16:14:33.782 | capture event |   {
+2026-05-05 16:14:33.782 | capture event |     SECURITY_DESCRIPTOR = <null>,
+2026-05-05 16:14:33.782 | capture event |     TargetInstance = {
+2026-05-05 16:14:33.782 | capture event |       AccountType = 0,
+2026-05-05 16:14:33.782 | capture event |       AdminID = 16777229,
+2026-05-05 16:14:33.782 | capture event |       AdminSid = S-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:14:33.782 | capture event |       Categories = <null>,
+2026-05-05 16:14:33.782 | capture event |       CategoryNames = [
+2026-05-05 16:14:33.782 | capture event |         All
+2026-05-05 16:14:33.782 | capture event |       ],
+2026-05-05 16:14:33.782 | capture event |       CollectionNames = [
+2026-05-05 16:14:33.782 | capture event |         All Systems,
+2026-05-05 16:14:33.782 | capture event |         All Users and User Groups
+2026-05-05 16:14:33.782 | capture event |       ],
+2026-05-05 16:14:33.782 | capture event |       CreatedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:14:33.782 | capture event |       CreatedDate = 20260505131433.000000+000,
+2026-05-05 16:14:33.782 | capture event |       DisplayName = EDWARD_MONTOYA,
+2026-05-05 16:14:33.782 | capture event |       DistinguishedName = CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click,
+2026-05-05 16:14:33.782 | capture event |       ExtendedData = <null>,
+2026-05-05 16:14:33.782 | capture event |       IsCovered = <null>,
+2026-05-05 16:14:33.782 | capture event |       IsDeleted = false,
+2026-05-05 16:14:33.782 | capture event |       IsGroup = false,
+2026-05-05 16:14:33.782 | capture event |       LastModifiedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:14:33.782 | capture event |       LastModifiedDate = 20260505131433.000000+000,
+2026-05-05 16:14:33.782 | capture event |       LogonName = gam\EDWARD_MONTOYA,
+2026-05-05 16:14:33.782 | capture event |       Permissions = <null>,
+2026-05-05 16:14:33.782 | capture event |       RoleNames = [
+2026-05-05 16:14:33.782 | capture event |         Full Administrator
+2026-05-05 16:14:33.782 | capture event |       ],
+2026-05-05 16:14:33.782 | capture event |       Roles = <null>,
+2026-05-05 16:14:33.782 | capture event |       SKey = GAMS-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:14:33.782 | capture event |       SourceSite = GAM
+2026-05-05 16:14:33.782 | capture event |     },
+2026-05-05 16:14:33.782 | capture event |     TIME_CREATED = 134224604737625114
+2026-05-05 16:14:33.782 | capture event |   }
+2026-05-05 16:14:33.782 | capture event | capture event class: SMS_Admin
+2026-05-05 16:14:33.782 | capture event | capture event target instance properties:
+2026-05-05 16:14:33.782 | capture event |   property name: AccountType
+2026-05-05 16:14:33.782 | capture event |   property type: UInt32
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     0
+2026-05-05 16:14:33.782 | capture event |   property name: AdminID
+2026-05-05 16:14:33.782 | capture event |   property type: UInt32
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     16777229
+2026-05-05 16:14:33.782 | capture event |   property name: AdminSid
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:14:33.782 | capture event |   property name: Categories
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     <null>
+2026-05-05 16:14:33.782 | capture event |   property name: CategoryNames
+2026-05-05 16:14:33.782 | capture event |   property type: String[]
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     [
+2026-05-05 16:14:33.782 | capture event |       All
+2026-05-05 16:14:33.782 | capture event |     ]
+2026-05-05 16:14:33.782 | capture event |   property name: CollectionNames
+2026-05-05 16:14:33.782 | capture event |   property type: String[]
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     [
+2026-05-05 16:14:33.782 | capture event |       All Systems,
+2026-05-05 16:14:33.782 | capture event |       All Users and User Groups
+2026-05-05 16:14:33.782 | capture event |     ]
+2026-05-05 16:14:33.782 | capture event |   property name: CreatedBy
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:14:33.782 | capture event |   property name: CreatedDate
+2026-05-05 16:14:33.782 | capture event |   property type: DateTime
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     20260505131433.000000+000
+2026-05-05 16:14:33.782 | capture event |   property name: DisplayName
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     EDWARD_MONTOYA
+2026-05-05 16:14:33.782 | capture event |   property name: DistinguishedName
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click
+2026-05-05 16:14:33.782 | capture event |   property name: ExtendedData
+2026-05-05 16:14:33.782 | capture event |   property type: Object
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     <null>
+2026-05-05 16:14:33.782 | capture event |   property name: IsCovered
+2026-05-05 16:14:33.782 | capture event |   property type: Boolean
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     <null>
+2026-05-05 16:14:33.782 | capture event |   property name: IsDeleted
+2026-05-05 16:14:33.782 | capture event |   property type: Boolean
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     false
+2026-05-05 16:14:33.782 | capture event |   property name: IsGroup
+2026-05-05 16:14:33.782 | capture event |   property type: Boolean
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     false
+2026-05-05 16:14:33.782 | capture event |   property name: LastModifiedBy
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:14:33.782 | capture event |   property name: LastModifiedDate
+2026-05-05 16:14:33.782 | capture event |   property type: DateTime
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     20260505131433.000000+000
+2026-05-05 16:14:33.782 | capture event |   property name: LogonName
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     gam\EDWARD_MONTOYA
+2026-05-05 16:14:33.782 | capture event |   property name: Permissions
+2026-05-05 16:14:33.782 | capture event |   property type: Object
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     <null>
+2026-05-05 16:14:33.782 | capture event |   property name: RoleNames
+2026-05-05 16:14:33.782 | capture event |   property type: String[]
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     [
+2026-05-05 16:14:33.782 | capture event |       Full Administrator
+2026-05-05 16:14:33.782 | capture event |     ]
+2026-05-05 16:14:33.782 | capture event |   property name: Roles
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     <null>
+2026-05-05 16:14:33.782 | capture event |   property name: SKey
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:14:33.782 | capture event |   property name: SourceSite
+2026-05-05 16:14:33.782 | capture event |   property type: String
+2026-05-05 16:14:33.782 | capture event |   property value:
+2026-05-05 16:14:33.782 | capture event |     GAM
+2026-05-05 16:14:33.782 | capture event | enrich start: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:14:33.782 | capture event | SMS_Admin enrichment results:
+2026-05-05 16:14:33.782 | capture event | Account Type: 0
+2026-05-05 16:14:33.782 | capture event | Admin ID: 16777229
+2026-05-05 16:14:33.782 | capture event | Admin Sid: S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:14:33.782 | capture event | Category Names: All
+2026-05-05 16:14:33.782 | capture event | Collection Names: All Systems
+2026-05-05 16:14:33.782 | capture event |                   All Users and User Groups
+2026-05-05 16:14:33.782 | capture event | Created By: gam\LOGAN_CABRERA
+2026-05-05 16:14:33.782 | capture event | Created Date: 2026-05-05 19:14:33Z
+2026-05-05 16:14:33.782 | capture event | Display Name: EDWARD_MONTOYA
+2026-05-05 16:14:33.782 | capture event | Distinguished Name: CN: EDWARD_MONTOYA
+2026-05-05 16:14:33.782 | capture event |                     OU: ServiceAccounts
+2026-05-05 16:14:33.782 | capture event |                     OU: FSR
+2026-05-05 16:14:33.782 | capture event |                     OU: Tier 2
+2026-05-05 16:14:33.782 | capture event |                     DC: gam
+2026-05-05 16:14:33.782 | capture event |                     DC: click
+2026-05-05 16:14:33.782 | capture event | Is Deleted: No
+2026-05-05 16:14:33.782 | capture event | Is Group: No
+2026-05-05 16:14:33.782 | capture event | Last Modified By: gam\LOGAN_CABRERA
+2026-05-05 16:14:33.782 | capture event | Last Modified Date: 2026-05-05 19:14:33Z
+2026-05-05 16:14:33.782 | capture event | Logon Name: gam\EDWARD_MONTOYA
+2026-05-05 16:14:33.782 | capture event | Role Names: Full Administrator
+2026-05-05 16:14:33.782 | capture event | SKey: GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:14:33.782 | capture event | Source Site: GAM
+2026-05-05 16:14:33.782 | capture event | enrich completed: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:14:33.782 | capture event | capture event property count: 22
+2026-05-05 16:14:33.782 | capture event | 
+2026-05-05 16:14:33.784 | write event | application event summary prepared: capture event summary: class=SMS_Admin; properties=22; capture=success; enrich=success; serviceMode=False
+2026-05-05 16:14:33.791 | write event | application event written successfully; eventId=2001
+2026-05-05 16:36:24.565 | capture event | capture event start
+2026-05-05 16:36:24.565 | capture event | capture event timestamp: 2026-05-05 16:36:24.563
+2026-05-05 16:36:24.565 | capture event | capture event sender type: System.Management.ManagementEventWatcher
+2026-05-05 16:36:24.565 | capture event | capture event envelope:
+2026-05-05 16:36:24.565 | capture event |   {
+2026-05-05 16:36:24.565 | capture event |     SECURITY_DESCRIPTOR = <null>,
+2026-05-05 16:36:24.565 | capture event |     TargetInstance = {
+2026-05-05 16:36:24.565 | capture event |       AccountType = 0,
+2026-05-05 16:36:24.565 | capture event |       AdminID = 16777230,
+2026-05-05 16:36:24.565 | capture event |       AdminSid = S-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:36:24.565 | capture event |       Categories = <null>,
+2026-05-05 16:36:24.565 | capture event |       CategoryNames = [
+2026-05-05 16:36:24.565 | capture event |         All
+2026-05-05 16:36:24.565 | capture event |       ],
+2026-05-05 16:36:24.565 | capture event |       CollectionNames = [
+2026-05-05 16:36:24.565 | capture event |         All Systems,
+2026-05-05 16:36:24.565 | capture event |         All Users and User Groups
+2026-05-05 16:36:24.565 | capture event |       ],
+2026-05-05 16:36:24.565 | capture event |       CreatedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:36:24.565 | capture event |       CreatedDate = 20260505132738.000000+000,
+2026-05-05 16:36:24.565 | capture event |       DisplayName = EDWARD_MONTOYA,
+2026-05-05 16:36:24.565 | capture event |       DistinguishedName = CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click,
+2026-05-05 16:36:24.565 | capture event |       ExtendedData = <null>,
+2026-05-05 16:36:24.565 | capture event |       IsCovered = <null>,
+2026-05-05 16:36:24.565 | capture event |       IsDeleted = false,
+2026-05-05 16:36:24.565 | capture event |       IsGroup = false,
+2026-05-05 16:36:24.565 | capture event |       LastModifiedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:36:24.565 | capture event |       LastModifiedDate = 20260505132738.000000+000,
+2026-05-05 16:36:24.565 | capture event |       LogonName = gam\EDWARD_MONTOYA,
+2026-05-05 16:36:24.565 | capture event |       Permissions = <null>,
+2026-05-05 16:36:24.565 | capture event |       RoleNames = [
+2026-05-05 16:36:24.565 | capture event |         Full Administrator
+2026-05-05 16:36:24.565 | capture event |       ],
+2026-05-05 16:36:24.565 | capture event |       Roles = <null>,
+2026-05-05 16:36:24.565 | capture event |       SKey = GAMS-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:36:24.565 | capture event |       SourceSite = GAM
+2026-05-05 16:36:24.565 | capture event |     },
+2026-05-05 16:36:24.565 | capture event |     TIME_CREATED = 134224612601594057
+2026-05-05 16:36:24.565 | capture event |   }
+2026-05-05 16:36:24.565 | capture event | capture event class: SMS_Admin
+2026-05-05 16:36:24.565 | capture event | capture event target instance properties:
+2026-05-05 16:36:24.565 | capture event |   property name: AccountType
+2026-05-05 16:36:24.565 | capture event |   property type: UInt32
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     0
+2026-05-05 16:36:24.565 | capture event |   property name: AdminID
+2026-05-05 16:36:24.565 | capture event |   property type: UInt32
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     16777230
+2026-05-05 16:36:24.565 | capture event |   property name: AdminSid
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.565 | capture event |   property name: Categories
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     <null>
+2026-05-05 16:36:24.565 | capture event |   property name: CategoryNames
+2026-05-05 16:36:24.565 | capture event |   property type: String[]
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     [
+2026-05-05 16:36:24.565 | capture event |       All
+2026-05-05 16:36:24.565 | capture event |     ]
+2026-05-05 16:36:24.565 | capture event |   property name: CollectionNames
+2026-05-05 16:36:24.565 | capture event |   property type: String[]
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     [
+2026-05-05 16:36:24.565 | capture event |       All Systems,
+2026-05-05 16:36:24.565 | capture event |       All Users and User Groups
+2026-05-05 16:36:24.565 | capture event |     ]
+2026-05-05 16:36:24.565 | capture event |   property name: CreatedBy
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:36:24.565 | capture event |   property name: CreatedDate
+2026-05-05 16:36:24.565 | capture event |   property type: DateTime
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     20260505132738.000000+000
+2026-05-05 16:36:24.565 | capture event |   property name: DisplayName
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     EDWARD_MONTOYA
+2026-05-05 16:36:24.565 | capture event |   property name: DistinguishedName
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click
+2026-05-05 16:36:24.565 | capture event |   property name: ExtendedData
+2026-05-05 16:36:24.565 | capture event |   property type: Object
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     <null>
+2026-05-05 16:36:24.565 | capture event |   property name: IsCovered
+2026-05-05 16:36:24.565 | capture event |   property type: Boolean
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     <null>
+2026-05-05 16:36:24.565 | capture event |   property name: IsDeleted
+2026-05-05 16:36:24.565 | capture event |   property type: Boolean
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     false
+2026-05-05 16:36:24.565 | capture event |   property name: IsGroup
+2026-05-05 16:36:24.565 | capture event |   property type: Boolean
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     false
+2026-05-05 16:36:24.565 | capture event |   property name: LastModifiedBy
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:36:24.565 | capture event |   property name: LastModifiedDate
+2026-05-05 16:36:24.565 | capture event |   property type: DateTime
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     20260505132738.000000+000
+2026-05-05 16:36:24.565 | capture event |   property name: LogonName
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     gam\EDWARD_MONTOYA
+2026-05-05 16:36:24.565 | capture event |   property name: Permissions
+2026-05-05 16:36:24.565 | capture event |   property type: Object
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     <null>
+2026-05-05 16:36:24.565 | capture event |   property name: RoleNames
+2026-05-05 16:36:24.565 | capture event |   property type: String[]
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     [
+2026-05-05 16:36:24.565 | capture event |       Full Administrator
+2026-05-05 16:36:24.565 | capture event |     ]
+2026-05-05 16:36:24.565 | capture event |   property name: Roles
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     <null>
+2026-05-05 16:36:24.565 | capture event |   property name: SKey
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.565 | capture event |   property name: SourceSite
+2026-05-05 16:36:24.565 | capture event |   property type: String
+2026-05-05 16:36:24.565 | capture event |   property value:
+2026-05-05 16:36:24.565 | capture event |     GAM
+2026-05-05 16:36:24.565 | capture event | enrich start: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:36:24.565 | capture event | SMS_Admin enrichment results:
+2026-05-05 16:36:24.565 | capture event | Account Type: 0
+2026-05-05 16:36:24.565 | capture event | Admin ID: 16777230
+2026-05-05 16:36:24.565 | capture event | Admin Sid: S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.565 | capture event | Category Names: All
+2026-05-05 16:36:24.565 | capture event | Collection Names: All Systems
+2026-05-05 16:36:24.565 | capture event |                   All Users and User Groups
+2026-05-05 16:36:24.565 | capture event | Created By: gam\LOGAN_CABRERA
+2026-05-05 16:36:24.565 | capture event | Created Date: 2026-05-05 19:27:38Z
+2026-05-05 16:36:24.565 | capture event | Display Name: EDWARD_MONTOYA
+2026-05-05 16:36:24.565 | capture event | Distinguished Name: CN: EDWARD_MONTOYA
+2026-05-05 16:36:24.565 | capture event |                     OU: ServiceAccounts
+2026-05-05 16:36:24.565 | capture event |                     OU: FSR
+2026-05-05 16:36:24.565 | capture event |                     OU: Tier 2
+2026-05-05 16:36:24.565 | capture event |                     DC: gam
+2026-05-05 16:36:24.565 | capture event |                     DC: click
+2026-05-05 16:36:24.565 | capture event | Is Deleted: No
+2026-05-05 16:36:24.565 | capture event | Is Group: No
+2026-05-05 16:36:24.565 | capture event | Last Modified By: gam\LOGAN_CABRERA
+2026-05-05 16:36:24.565 | capture event | Last Modified Date: 2026-05-05 19:27:38Z
+2026-05-05 16:36:24.565 | capture event | Logon Name: gam\EDWARD_MONTOYA
+2026-05-05 16:36:24.565 | capture event | Role Names: Full Administrator
+2026-05-05 16:36:24.565 | capture event | SKey: GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.565 | capture event | Source Site: GAM
+2026-05-05 16:36:24.565 | capture event | enrich completed: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:36:24.565 | capture event | capture event property count: 22
+2026-05-05 16:36:24.565 | capture event | 
+2026-05-05 16:36:24.566 | write event | application event summary prepared: capture event summary: class=SMS_Admin; properties=22; capture=success; enrich=success; serviceMode=False
+2026-05-05 16:36:24.569 | write event | application event written successfully; eventId=2001
+2026-05-05 16:36:24.588 | capture event | capture event start
+2026-05-05 16:36:24.588 | capture event | capture event timestamp: 2026-05-05 16:36:24.586
+2026-05-05 16:36:24.588 | capture event | capture event sender type: System.Management.ManagementEventWatcher
+2026-05-05 16:36:24.588 | capture event | capture event envelope:
+2026-05-05 16:36:24.588 | capture event |   {
+2026-05-05 16:36:24.588 | capture event |     SECURITY_DESCRIPTOR = <null>,
+2026-05-05 16:36:24.588 | capture event |     TargetInstance = {
+2026-05-05 16:36:24.588 | capture event |       AccountType = 0,
+2026-05-05 16:36:24.588 | capture event |       AdminID = 16777231,
+2026-05-05 16:36:24.588 | capture event |       AdminSid = S-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:36:24.588 | capture event |       Categories = <null>,
+2026-05-05 16:36:24.588 | capture event |       CategoryNames = [
+2026-05-05 16:36:24.588 | capture event |         All
+2026-05-05 16:36:24.588 | capture event |       ],
+2026-05-05 16:36:24.588 | capture event |       CollectionNames = [
+2026-05-05 16:36:24.588 | capture event |         All Systems,
+2026-05-05 16:36:24.588 | capture event |         All Users and User Groups
+2026-05-05 16:36:24.588 | capture event |       ],
+2026-05-05 16:36:24.588 | capture event |       CreatedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:36:24.588 | capture event |       CreatedDate = 20260505133026.000000+000,
+2026-05-05 16:36:24.588 | capture event |       DisplayName = EDWARD_MONTOYA,
+2026-05-05 16:36:24.588 | capture event |       DistinguishedName = CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click,
+2026-05-05 16:36:24.588 | capture event |       ExtendedData = <null>,
+2026-05-05 16:36:24.588 | capture event |       IsCovered = <null>,
+2026-05-05 16:36:24.588 | capture event |       IsDeleted = false,
+2026-05-05 16:36:24.588 | capture event |       IsGroup = false,
+2026-05-05 16:36:24.588 | capture event |       LastModifiedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:36:24.588 | capture event |       LastModifiedDate = 20260505133026.000000+000,
+2026-05-05 16:36:24.588 | capture event |       LogonName = gam\EDWARD_MONTOYA,
+2026-05-05 16:36:24.588 | capture event |       Permissions = <null>,
+2026-05-05 16:36:24.588 | capture event |       RoleNames = [
+2026-05-05 16:36:24.588 | capture event |         Full Administrator
+2026-05-05 16:36:24.588 | capture event |       ],
+2026-05-05 16:36:24.588 | capture event |       Roles = <null>,
+2026-05-05 16:36:24.588 | capture event |       SKey = GAMS-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:36:24.588 | capture event |       SourceSite = GAM
+2026-05-05 16:36:24.588 | capture event |     },
+2026-05-05 16:36:24.588 | capture event |     TIME_CREATED = 134224614273008791
+2026-05-05 16:36:24.588 | capture event |   }
+2026-05-05 16:36:24.588 | capture event | capture event class: SMS_Admin
+2026-05-05 16:36:24.588 | capture event | capture event target instance properties:
+2026-05-05 16:36:24.588 | capture event |   property name: AccountType
+2026-05-05 16:36:24.588 | capture event |   property type: UInt32
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     0
+2026-05-05 16:36:24.588 | capture event |   property name: AdminID
+2026-05-05 16:36:24.588 | capture event |   property type: UInt32
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     16777231
+2026-05-05 16:36:24.588 | capture event |   property name: AdminSid
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.588 | capture event |   property name: Categories
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     <null>
+2026-05-05 16:36:24.588 | capture event |   property name: CategoryNames
+2026-05-05 16:36:24.588 | capture event |   property type: String[]
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     [
+2026-05-05 16:36:24.588 | capture event |       All
+2026-05-05 16:36:24.588 | capture event |     ]
+2026-05-05 16:36:24.588 | capture event |   property name: CollectionNames
+2026-05-05 16:36:24.588 | capture event |   property type: String[]
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     [
+2026-05-05 16:36:24.588 | capture event |       All Systems,
+2026-05-05 16:36:24.588 | capture event |       All Users and User Groups
+2026-05-05 16:36:24.588 | capture event |     ]
+2026-05-05 16:36:24.588 | capture event |   property name: CreatedBy
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:36:24.588 | capture event |   property name: CreatedDate
+2026-05-05 16:36:24.588 | capture event |   property type: DateTime
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     20260505133026.000000+000
+2026-05-05 16:36:24.588 | capture event |   property name: DisplayName
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     EDWARD_MONTOYA
+2026-05-05 16:36:24.588 | capture event |   property name: DistinguishedName
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click
+2026-05-05 16:36:24.588 | capture event |   property name: ExtendedData
+2026-05-05 16:36:24.588 | capture event |   property type: Object
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     <null>
+2026-05-05 16:36:24.588 | capture event |   property name: IsCovered
+2026-05-05 16:36:24.588 | capture event |   property type: Boolean
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     <null>
+2026-05-05 16:36:24.588 | capture event |   property name: IsDeleted
+2026-05-05 16:36:24.588 | capture event |   property type: Boolean
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     false
+2026-05-05 16:36:24.588 | capture event |   property name: IsGroup
+2026-05-05 16:36:24.588 | capture event |   property type: Boolean
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     false
+2026-05-05 16:36:24.588 | capture event |   property name: LastModifiedBy
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:36:24.588 | capture event |   property name: LastModifiedDate
+2026-05-05 16:36:24.588 | capture event |   property type: DateTime
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     20260505133026.000000+000
+2026-05-05 16:36:24.588 | capture event |   property name: LogonName
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     gam\EDWARD_MONTOYA
+2026-05-05 16:36:24.588 | capture event |   property name: Permissions
+2026-05-05 16:36:24.588 | capture event |   property type: Object
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     <null>
+2026-05-05 16:36:24.588 | capture event |   property name: RoleNames
+2026-05-05 16:36:24.588 | capture event |   property type: String[]
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     [
+2026-05-05 16:36:24.588 | capture event |       Full Administrator
+2026-05-05 16:36:24.588 | capture event |     ]
+2026-05-05 16:36:24.588 | capture event |   property name: Roles
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     <null>
+2026-05-05 16:36:24.588 | capture event |   property name: SKey
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.588 | capture event |   property name: SourceSite
+2026-05-05 16:36:24.588 | capture event |   property type: String
+2026-05-05 16:36:24.588 | capture event |   property value:
+2026-05-05 16:36:24.588 | capture event |     GAM
+2026-05-05 16:36:24.588 | capture event | enrich start: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:36:24.588 | capture event | SMS_Admin enrichment results:
+2026-05-05 16:36:24.588 | capture event | Account Type: 0
+2026-05-05 16:36:24.588 | capture event | Admin ID: 16777231
+2026-05-05 16:36:24.588 | capture event | Admin Sid: S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.588 | capture event | Category Names: All
+2026-05-05 16:36:24.588 | capture event | Collection Names: All Systems
+2026-05-05 16:36:24.588 | capture event |                   All Users and User Groups
+2026-05-05 16:36:24.588 | capture event | Created By: gam\LOGAN_CABRERA
+2026-05-05 16:36:24.588 | capture event | Created Date: 2026-05-05 19:30:26Z
+2026-05-05 16:36:24.588 | capture event | Display Name: EDWARD_MONTOYA
+2026-05-05 16:36:24.588 | capture event | Distinguished Name: CN: EDWARD_MONTOYA
+2026-05-05 16:36:24.588 | capture event |                     OU: ServiceAccounts
+2026-05-05 16:36:24.588 | capture event |                     OU: FSR
+2026-05-05 16:36:24.588 | capture event |                     OU: Tier 2
+2026-05-05 16:36:24.588 | capture event |                     DC: gam
+2026-05-05 16:36:24.588 | capture event |                     DC: click
+2026-05-05 16:36:24.588 | capture event | Is Deleted: No
+2026-05-05 16:36:24.588 | capture event | Is Group: No
+2026-05-05 16:36:24.588 | capture event | Last Modified By: gam\LOGAN_CABRERA
+2026-05-05 16:36:24.588 | capture event | Last Modified Date: 2026-05-05 19:30:26Z
+2026-05-05 16:36:24.588 | capture event | Logon Name: gam\EDWARD_MONTOYA
+2026-05-05 16:36:24.588 | capture event | Role Names: Full Administrator
+2026-05-05 16:36:24.588 | capture event | SKey: GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.588 | capture event | Source Site: GAM
+2026-05-05 16:36:24.588 | capture event | enrich completed: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:36:24.588 | capture event | capture event property count: 22
+2026-05-05 16:36:24.588 | capture event | 
+2026-05-05 16:36:24.589 | write event | application event summary prepared: capture event summary: class=SMS_Admin; properties=22; capture=success; enrich=success; serviceMode=False
+2026-05-05 16:36:24.590 | write event | application event written successfully; eventId=2001
+2026-05-05 16:36:24.604 | capture event | capture event start
+2026-05-05 16:36:24.604 | capture event | capture event timestamp: 2026-05-05 16:36:24.601
+2026-05-05 16:36:24.604 | capture event | capture event sender type: System.Management.ManagementEventWatcher
+2026-05-05 16:36:24.604 | capture event | capture event envelope:
+2026-05-05 16:36:24.604 | capture event |   {
+2026-05-05 16:36:24.604 | capture event |     SECURITY_DESCRIPTOR = <null>,
+2026-05-05 16:36:24.604 | capture event |     TargetInstance = {
+2026-05-05 16:36:24.604 | capture event |       AccountType = 0,
+2026-05-05 16:36:24.604 | capture event |       AdminID = 16777232,
+2026-05-05 16:36:24.604 | capture event |       AdminSid = S-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:36:24.604 | capture event |       Categories = <null>,
+2026-05-05 16:36:24.604 | capture event |       CategoryNames = [
+2026-05-05 16:36:24.604 | capture event |         All
+2026-05-05 16:36:24.604 | capture event |       ],
+2026-05-05 16:36:24.604 | capture event |       CollectionNames = [
+2026-05-05 16:36:24.604 | capture event |         All Systems,
+2026-05-05 16:36:24.604 | capture event |         All Users and User Groups
+2026-05-05 16:36:24.604 | capture event |       ],
+2026-05-05 16:36:24.604 | capture event |       CreatedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:36:24.604 | capture event |       CreatedDate = 20260505133234.000000+000,
+2026-05-05 16:36:24.604 | capture event |       DisplayName = EDWARD_MONTOYA,
+2026-05-05 16:36:24.604 | capture event |       DistinguishedName = CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click,
+2026-05-05 16:36:24.604 | capture event |       ExtendedData = <null>,
+2026-05-05 16:36:24.604 | capture event |       IsCovered = <null>,
+2026-05-05 16:36:24.604 | capture event |       IsDeleted = false,
+2026-05-05 16:36:24.604 | capture event |       IsGroup = false,
+2026-05-05 16:36:24.604 | capture event |       LastModifiedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:36:24.604 | capture event |       LastModifiedDate = 20260505133234.000000+000,
+2026-05-05 16:36:24.604 | capture event |       LogonName = gam\EDWARD_MONTOYA,
+2026-05-05 16:36:24.604 | capture event |       Permissions = <null>,
+2026-05-05 16:36:24.604 | capture event |       RoleNames = [
+2026-05-05 16:36:24.604 | capture event |         Full Administrator
+2026-05-05 16:36:24.604 | capture event |       ],
+2026-05-05 16:36:24.604 | capture event |       Roles = <null>,
+2026-05-05 16:36:24.604 | capture event |       SKey = GAMS-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:36:24.604 | capture event |       SourceSite = GAM
+2026-05-05 16:36:24.604 | capture event |     },
+2026-05-05 16:36:24.604 | capture event |     TIME_CREATED = 134224615552494450
+2026-05-05 16:36:24.604 | capture event |   }
+2026-05-05 16:36:24.604 | capture event | capture event class: SMS_Admin
+2026-05-05 16:36:24.604 | capture event | capture event target instance properties:
+2026-05-05 16:36:24.604 | capture event |   property name: AccountType
+2026-05-05 16:36:24.604 | capture event |   property type: UInt32
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     0
+2026-05-05 16:36:24.604 | capture event |   property name: AdminID
+2026-05-05 16:36:24.604 | capture event |   property type: UInt32
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     16777232
+2026-05-05 16:36:24.604 | capture event |   property name: AdminSid
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.604 | capture event |   property name: Categories
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     <null>
+2026-05-05 16:36:24.604 | capture event |   property name: CategoryNames
+2026-05-05 16:36:24.604 | capture event |   property type: String[]
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     [
+2026-05-05 16:36:24.604 | capture event |       All
+2026-05-05 16:36:24.604 | capture event |     ]
+2026-05-05 16:36:24.604 | capture event |   property name: CollectionNames
+2026-05-05 16:36:24.604 | capture event |   property type: String[]
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     [
+2026-05-05 16:36:24.604 | capture event |       All Systems,
+2026-05-05 16:36:24.604 | capture event |       All Users and User Groups
+2026-05-05 16:36:24.604 | capture event |     ]
+2026-05-05 16:36:24.604 | capture event |   property name: CreatedBy
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:36:24.604 | capture event |   property name: CreatedDate
+2026-05-05 16:36:24.604 | capture event |   property type: DateTime
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     20260505133234.000000+000
+2026-05-05 16:36:24.604 | capture event |   property name: DisplayName
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     EDWARD_MONTOYA
+2026-05-05 16:36:24.604 | capture event |   property name: DistinguishedName
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click
+2026-05-05 16:36:24.604 | capture event |   property name: ExtendedData
+2026-05-05 16:36:24.604 | capture event |   property type: Object
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     <null>
+2026-05-05 16:36:24.604 | capture event |   property name: IsCovered
+2026-05-05 16:36:24.604 | capture event |   property type: Boolean
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     <null>
+2026-05-05 16:36:24.604 | capture event |   property name: IsDeleted
+2026-05-05 16:36:24.604 | capture event |   property type: Boolean
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     false
+2026-05-05 16:36:24.604 | capture event |   property name: IsGroup
+2026-05-05 16:36:24.604 | capture event |   property type: Boolean
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     false
+2026-05-05 16:36:24.604 | capture event |   property name: LastModifiedBy
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:36:24.604 | capture event |   property name: LastModifiedDate
+2026-05-05 16:36:24.604 | capture event |   property type: DateTime
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     20260505133234.000000+000
+2026-05-05 16:36:24.604 | capture event |   property name: LogonName
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     gam\EDWARD_MONTOYA
+2026-05-05 16:36:24.604 | capture event |   property name: Permissions
+2026-05-05 16:36:24.604 | capture event |   property type: Object
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     <null>
+2026-05-05 16:36:24.604 | capture event |   property name: RoleNames
+2026-05-05 16:36:24.604 | capture event |   property type: String[]
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     [
+2026-05-05 16:36:24.604 | capture event |       Full Administrator
+2026-05-05 16:36:24.604 | capture event |     ]
+2026-05-05 16:36:24.604 | capture event |   property name: Roles
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     <null>
+2026-05-05 16:36:24.604 | capture event |   property name: SKey
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.604 | capture event |   property name: SourceSite
+2026-05-05 16:36:24.604 | capture event |   property type: String
+2026-05-05 16:36:24.604 | capture event |   property value:
+2026-05-05 16:36:24.604 | capture event |     GAM
+2026-05-05 16:36:24.604 | capture event | enrich start: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:36:24.604 | capture event | SMS_Admin enrichment results:
+2026-05-05 16:36:24.604 | capture event | Account Type: 0
+2026-05-05 16:36:24.604 | capture event | Admin ID: 16777232
+2026-05-05 16:36:24.604 | capture event | Admin Sid: S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.604 | capture event | Category Names: All
+2026-05-05 16:36:24.604 | capture event | Collection Names: All Systems
+2026-05-05 16:36:24.604 | capture event |                   All Users and User Groups
+2026-05-05 16:36:24.604 | capture event | Created By: gam\LOGAN_CABRERA
+2026-05-05 16:36:24.604 | capture event | Created Date: 2026-05-05 19:32:34Z
+2026-05-05 16:36:24.604 | capture event | Display Name: EDWARD_MONTOYA
+2026-05-05 16:36:24.604 | capture event | Distinguished Name: CN: EDWARD_MONTOYA
+2026-05-05 16:36:24.604 | capture event |                     OU: ServiceAccounts
+2026-05-05 16:36:24.604 | capture event |                     OU: FSR
+2026-05-05 16:36:24.604 | capture event |                     OU: Tier 2
+2026-05-05 16:36:24.604 | capture event |                     DC: gam
+2026-05-05 16:36:24.604 | capture event |                     DC: click
+2026-05-05 16:36:24.604 | capture event | Is Deleted: No
+2026-05-05 16:36:24.604 | capture event | Is Group: No
+2026-05-05 16:36:24.604 | capture event | Last Modified By: gam\LOGAN_CABRERA
+2026-05-05 16:36:24.604 | capture event | Last Modified Date: 2026-05-05 19:32:34Z
+2026-05-05 16:36:24.604 | capture event | Logon Name: gam\EDWARD_MONTOYA
+2026-05-05 16:36:24.604 | capture event | Role Names: Full Administrator
+2026-05-05 16:36:24.604 | capture event | SKey: GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.604 | capture event | Source Site: GAM
+2026-05-05 16:36:24.604 | capture event | enrich completed: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:36:24.604 | capture event | capture event property count: 22
+2026-05-05 16:36:24.604 | capture event | 
+2026-05-05 16:36:24.604 | write event | application event summary prepared: capture event summary: class=SMS_Admin; properties=22; capture=success; enrich=success; serviceMode=False
+2026-05-05 16:36:24.604 | write event | application event written successfully; eventId=2001
+2026-05-05 16:36:24.618 | capture event | capture event start
+2026-05-05 16:36:24.618 | capture event | capture event timestamp: 2026-05-05 16:36:24.616
+2026-05-05 16:36:24.618 | capture event | capture event sender type: System.Management.ManagementEventWatcher
+2026-05-05 16:36:24.618 | capture event | capture event envelope:
+2026-05-05 16:36:24.618 | capture event |   {
+2026-05-05 16:36:24.618 | capture event |     SECURITY_DESCRIPTOR = <null>,
+2026-05-05 16:36:24.618 | capture event |     TargetInstance = {
+2026-05-05 16:36:24.618 | capture event |       AccountType = 0,
+2026-05-05 16:36:24.618 | capture event |       AdminID = 16777233,
+2026-05-05 16:36:24.618 | capture event |       AdminSid = S-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:36:24.618 | capture event |       Categories = <null>,
+2026-05-05 16:36:24.618 | capture event |       CategoryNames = [
+2026-05-05 16:36:24.618 | capture event |         All
+2026-05-05 16:36:24.618 | capture event |       ],
+2026-05-05 16:36:24.618 | capture event |       CollectionNames = [
+2026-05-05 16:36:24.618 | capture event |         All Systems,
+2026-05-05 16:36:24.618 | capture event |         All Users and User Groups
+2026-05-05 16:36:24.618 | capture event |       ],
+2026-05-05 16:36:24.618 | capture event |       CreatedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:36:24.618 | capture event |       CreatedDate = 20260505133533.000000+000,
+2026-05-05 16:36:24.618 | capture event |       DisplayName = EDWARD_MONTOYA,
+2026-05-05 16:36:24.618 | capture event |       DistinguishedName = CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click,
+2026-05-05 16:36:24.618 | capture event |       ExtendedData = <null>,
+2026-05-05 16:36:24.618 | capture event |       IsCovered = <null>,
+2026-05-05 16:36:24.618 | capture event |       IsDeleted = false,
+2026-05-05 16:36:24.618 | capture event |       IsGroup = false,
+2026-05-05 16:36:24.618 | capture event |       LastModifiedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:36:24.618 | capture event |       LastModifiedDate = 20260505133533.000000+000,
+2026-05-05 16:36:24.618 | capture event |       LogonName = gam\EDWARD_MONTOYA,
+2026-05-05 16:36:24.618 | capture event |       Permissions = <null>,
+2026-05-05 16:36:24.618 | capture event |       RoleNames = [
+2026-05-05 16:36:24.618 | capture event |         Full Administrator
+2026-05-05 16:36:24.618 | capture event |       ],
+2026-05-05 16:36:24.618 | capture event |       Roles = <null>,
+2026-05-05 16:36:24.618 | capture event |       SKey = GAMS-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:36:24.618 | capture event |       SourceSite = GAM
+2026-05-05 16:36:24.618 | capture event |     },
+2026-05-05 16:36:24.618 | capture event |     TIME_CREATED = 134224617340592154
+2026-05-05 16:36:24.618 | capture event |   }
+2026-05-05 16:36:24.618 | capture event | capture event class: SMS_Admin
+2026-05-05 16:36:24.618 | capture event | capture event target instance properties:
+2026-05-05 16:36:24.618 | capture event |   property name: AccountType
+2026-05-05 16:36:24.618 | capture event |   property type: UInt32
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     0
+2026-05-05 16:36:24.618 | capture event |   property name: AdminID
+2026-05-05 16:36:24.618 | capture event |   property type: UInt32
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     16777233
+2026-05-05 16:36:24.618 | capture event |   property name: AdminSid
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.618 | capture event |   property name: Categories
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     <null>
+2026-05-05 16:36:24.618 | capture event |   property name: CategoryNames
+2026-05-05 16:36:24.618 | capture event |   property type: String[]
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     [
+2026-05-05 16:36:24.618 | capture event |       All
+2026-05-05 16:36:24.618 | capture event |     ]
+2026-05-05 16:36:24.618 | capture event |   property name: CollectionNames
+2026-05-05 16:36:24.618 | capture event |   property type: String[]
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     [
+2026-05-05 16:36:24.618 | capture event |       All Systems,
+2026-05-05 16:36:24.618 | capture event |       All Users and User Groups
+2026-05-05 16:36:24.618 | capture event |     ]
+2026-05-05 16:36:24.618 | capture event |   property name: CreatedBy
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:36:24.618 | capture event |   property name: CreatedDate
+2026-05-05 16:36:24.618 | capture event |   property type: DateTime
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     20260505133533.000000+000
+2026-05-05 16:36:24.618 | capture event |   property name: DisplayName
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     EDWARD_MONTOYA
+2026-05-05 16:36:24.618 | capture event |   property name: DistinguishedName
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click
+2026-05-05 16:36:24.618 | capture event |   property name: ExtendedData
+2026-05-05 16:36:24.618 | capture event |   property type: Object
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     <null>
+2026-05-05 16:36:24.618 | capture event |   property name: IsCovered
+2026-05-05 16:36:24.618 | capture event |   property type: Boolean
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     <null>
+2026-05-05 16:36:24.618 | capture event |   property name: IsDeleted
+2026-05-05 16:36:24.618 | capture event |   property type: Boolean
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     false
+2026-05-05 16:36:24.618 | capture event |   property name: IsGroup
+2026-05-05 16:36:24.618 | capture event |   property type: Boolean
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     false
+2026-05-05 16:36:24.618 | capture event |   property name: LastModifiedBy
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:36:24.618 | capture event |   property name: LastModifiedDate
+2026-05-05 16:36:24.618 | capture event |   property type: DateTime
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     20260505133533.000000+000
+2026-05-05 16:36:24.618 | capture event |   property name: LogonName
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     gam\EDWARD_MONTOYA
+2026-05-05 16:36:24.618 | capture event |   property name: Permissions
+2026-05-05 16:36:24.618 | capture event |   property type: Object
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     <null>
+2026-05-05 16:36:24.618 | capture event |   property name: RoleNames
+2026-05-05 16:36:24.618 | capture event |   property type: String[]
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     [
+2026-05-05 16:36:24.618 | capture event |       Full Administrator
+2026-05-05 16:36:24.618 | capture event |     ]
+2026-05-05 16:36:24.618 | capture event |   property name: Roles
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     <null>
+2026-05-05 16:36:24.618 | capture event |   property name: SKey
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.618 | capture event |   property name: SourceSite
+2026-05-05 16:36:24.618 | capture event |   property type: String
+2026-05-05 16:36:24.618 | capture event |   property value:
+2026-05-05 16:36:24.618 | capture event |     GAM
+2026-05-05 16:36:24.618 | capture event | enrich start: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:36:24.618 | capture event | SMS_Admin enrichment results:
+2026-05-05 16:36:24.618 | capture event | Account Type: 0
+2026-05-05 16:36:24.618 | capture event | Admin ID: 16777233
+2026-05-05 16:36:24.618 | capture event | Admin Sid: S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.618 | capture event | Category Names: All
+2026-05-05 16:36:24.618 | capture event | Collection Names: All Systems
+2026-05-05 16:36:24.618 | capture event |                   All Users and User Groups
+2026-05-05 16:36:24.618 | capture event | Created By: gam\LOGAN_CABRERA
+2026-05-05 16:36:24.618 | capture event | Created Date: 2026-05-05 19:35:33Z
+2026-05-05 16:36:24.618 | capture event | Display Name: EDWARD_MONTOYA
+2026-05-05 16:36:24.618 | capture event | Distinguished Name: CN: EDWARD_MONTOYA
+2026-05-05 16:36:24.618 | capture event |                     OU: ServiceAccounts
+2026-05-05 16:36:24.618 | capture event |                     OU: FSR
+2026-05-05 16:36:24.618 | capture event |                     OU: Tier 2
+2026-05-05 16:36:24.618 | capture event |                     DC: gam
+2026-05-05 16:36:24.618 | capture event |                     DC: click
+2026-05-05 16:36:24.618 | capture event | Is Deleted: No
+2026-05-05 16:36:24.618 | capture event | Is Group: No
+2026-05-05 16:36:24.618 | capture event | Last Modified By: gam\LOGAN_CABRERA
+2026-05-05 16:36:24.618 | capture event | Last Modified Date: 2026-05-05 19:35:33Z
+2026-05-05 16:36:24.618 | capture event | Logon Name: gam\EDWARD_MONTOYA
+2026-05-05 16:36:24.618 | capture event | Role Names: Full Administrator
+2026-05-05 16:36:24.618 | capture event | SKey: GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:36:24.618 | capture event | Source Site: GAM
+2026-05-05 16:36:24.618 | capture event | enrich completed: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:36:24.618 | capture event | capture event property count: 22
+2026-05-05 16:36:24.618 | capture event | 
+2026-05-05 16:36:24.618 | write event | application event summary prepared: capture event summary: class=SMS_Admin; properties=22; capture=success; enrich=success; serviceMode=False
+2026-05-05 16:36:24.619 | write event | application event written successfully; eventId=2001
+2026-05-05 16:36:26.862 | monitor | watcher stopped successfully
+2026-05-05 16:36:26.866 | monitor | watcher stopped successfully
+2026-05-05 16:36:26.867 | monitor | watcher stopped successfully
+2026-05-05 16:36:26.924 | monitor | watcher stopped successfully
+2026-05-05 16:36:26.969 | monitor | watcher stopped successfully
+2026-05-05 16:36:56.460 | startup | application start; args=--help
+2026-05-05 16:36:56.463 | startup | service mode=False
+2026-05-05 16:36:56.467 | monitor | ccm monitor start requested
+2026-05-05 16:36:56.483 | wmi connection | management point=sccm.gam.click; siteCode=GAM
+2026-05-05 16:36:56.484 | wmi connection | connecting to \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 16:36:56.495 | wmi connection | connection established to \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 16:36:56.495 | monitor | ccm monitor scope: \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 16:36:56.617 | monitor | watcher started: class=SMS_DeploymentInfo; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_DeploymentInfo'
+2026-05-05 16:36:56.685 | monitor | watcher started: class=SMS_CombinedDeviceResources; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_CombinedDeviceResources'
+2026-05-05 16:36:56.770 | monitor | watcher started: class=SMS_Admin; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_Admin'
+2026-05-05 16:36:56.836 | monitor | watcher started: class=SMS_Scripts; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_Scripts'
+2026-05-05 16:36:56.903 | monitor | watcher started: class=SMS_SCI_Reserved; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_SCI_Reserved'
+2026-05-05 16:36:59.674 | monitor | watcher stopped successfully
+2026-05-05 16:36:59.674 | monitor | watcher stopped successfully
+2026-05-05 16:36:59.676 | monitor | watcher stopped successfully
+2026-05-05 16:36:59.676 | monitor | watcher stopped successfully
+2026-05-05 16:36:59.676 | shutdown | console cancel requested
+2026-05-05 16:36:59.678 | monitor | watcher stopped successfully
+2026-05-05 16:40:24.192 | startup | application start; args=
+2026-05-05 16:40:24.196 | startup | service mode=False
+2026-05-05 16:40:24.202 | monitor | ccm monitor start requested
+2026-05-05 16:40:24.220 | wmi connection | management point=sccm.gam.click; siteCode=GAM
+2026-05-05 16:40:24.221 | wmi connection | connecting to \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 16:40:24.237 | wmi connection | connection established to \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 16:40:24.237 | monitor | ccm monitor scope: \\sccm.gam.click\root\SMS\site_GAM
+2026-05-05 16:40:24.358 | monitor | watcher started: class=SMS_DeploymentInfo; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_DeploymentInfo'
+2026-05-05 16:40:24.430 | monitor | watcher started: class=SMS_CombinedDeviceResources; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_CombinedDeviceResources'
+2026-05-05 16:40:24.523 | monitor | watcher started: class=SMS_Admin; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_Admin'
+2026-05-05 16:40:24.592 | monitor | watcher started: class=SMS_Scripts; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_Scripts'
+2026-05-05 16:40:24.663 | monitor | watcher started: class=SMS_SCI_Reserved; query=select * from __InstanceCreationEvent within 1 where TargetInstance ISA 'SMS_SCI_Reserved'
+2026-05-05 16:40:49.600 | capture event | capture event start
+2026-05-05 16:40:49.600 | capture event | capture event timestamp: 2026-05-05 16:40:49.526
+2026-05-05 16:40:49.600 | capture event | capture event sender type: System.Management.ManagementEventWatcher
+2026-05-05 16:40:49.600 | capture event | capture event envelope:
+2026-05-05 16:40:49.600 | capture event |   {
+2026-05-05 16:40:49.600 | capture event |     SECURITY_DESCRIPTOR = <null>,
+2026-05-05 16:40:49.600 | capture event |     TargetInstance = {
+2026-05-05 16:40:49.600 | capture event |       AccountType = 0,
+2026-05-05 16:40:49.600 | capture event |       AdminID = 16777234,
+2026-05-05 16:40:49.600 | capture event |       AdminSid = S-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:40:49.600 | capture event |       Categories = <null>,
+2026-05-05 16:40:49.600 | capture event |       CategoryNames = [
+2026-05-05 16:40:49.600 | capture event |         All
+2026-05-05 16:40:49.600 | capture event |       ],
+2026-05-05 16:40:49.600 | capture event |       CollectionNames = [
+2026-05-05 16:40:49.600 | capture event |         All Systems,
+2026-05-05 16:40:49.600 | capture event |         All Users and User Groups
+2026-05-05 16:40:49.600 | capture event |       ],
+2026-05-05 16:40:49.600 | capture event |       CreatedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:40:49.600 | capture event |       CreatedDate = 20260505134049.000000+000,
+2026-05-05 16:40:49.600 | capture event |       DisplayName = EDWARD_MONTOYA,
+2026-05-05 16:40:49.600 | capture event |       DistinguishedName = CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click,
+2026-05-05 16:40:49.600 | capture event |       ExtendedData = <null>,
+2026-05-05 16:40:49.600 | capture event |       IsCovered = <null>,
+2026-05-05 16:40:49.600 | capture event |       IsDeleted = false,
+2026-05-05 16:40:49.600 | capture event |       IsGroup = false,
+2026-05-05 16:40:49.600 | capture event |       LastModifiedBy = gam\LOGAN_CABRERA,
+2026-05-05 16:40:49.600 | capture event |       LastModifiedDate = 20260505134049.000000+000,
+2026-05-05 16:40:49.600 | capture event |       LogonName = gam\EDWARD_MONTOYA,
+2026-05-05 16:40:49.600 | capture event |       Permissions = <null>,
+2026-05-05 16:40:49.600 | capture event |       RoleNames = [
+2026-05-05 16:40:49.600 | capture event |         Full Administrator
+2026-05-05 16:40:49.600 | capture event |       ],
+2026-05-05 16:40:49.600 | capture event |       Roles = <null>,
+2026-05-05 16:40:49.600 | capture event |       SKey = GAMS-1-5-21-511818909-1338016983-424820340-1618,
+2026-05-05 16:40:49.600 | capture event |       SourceSite = GAM
+2026-05-05 16:40:49.600 | capture event |     },
+2026-05-05 16:40:49.600 | capture event |     TIME_CREATED = 134224620495123065
+2026-05-05 16:40:49.600 | capture event |   }
+2026-05-05 16:40:49.600 | capture event | capture event class: SMS_Admin
+2026-05-05 16:40:49.600 | capture event | capture event target instance properties:
+2026-05-05 16:40:49.600 | capture event |   property name: AccountType
+2026-05-05 16:40:49.600 | capture event |   property type: UInt32
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     0
+2026-05-05 16:40:49.600 | capture event |   property name: AdminID
+2026-05-05 16:40:49.600 | capture event |   property type: UInt32
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     16777234
+2026-05-05 16:40:49.600 | capture event |   property name: AdminSid
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:40:49.600 | capture event |   property name: Categories
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     <null>
+2026-05-05 16:40:49.600 | capture event |   property name: CategoryNames
+2026-05-05 16:40:49.600 | capture event |   property type: String[]
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     [
+2026-05-05 16:40:49.600 | capture event |       All
+2026-05-05 16:40:49.600 | capture event |     ]
+2026-05-05 16:40:49.600 | capture event |   property name: CollectionNames
+2026-05-05 16:40:49.600 | capture event |   property type: String[]
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     [
+2026-05-05 16:40:49.600 | capture event |       All Systems,
+2026-05-05 16:40:49.600 | capture event |       All Users and User Groups
+2026-05-05 16:40:49.600 | capture event |     ]
+2026-05-05 16:40:49.600 | capture event |   property name: CreatedBy
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:40:49.600 | capture event |   property name: CreatedDate
+2026-05-05 16:40:49.600 | capture event |   property type: DateTime
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     20260505134049.000000+000
+2026-05-05 16:40:49.600 | capture event |   property name: DisplayName
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     EDWARD_MONTOYA
+2026-05-05 16:40:49.600 | capture event |   property name: DistinguishedName
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     CN=EDWARD_MONTOYA,OU=ServiceAccounts,OU=FSR,OU=Tier 2,DC=gam,DC=click
+2026-05-05 16:40:49.600 | capture event |   property name: ExtendedData
+2026-05-05 16:40:49.600 | capture event |   property type: Object
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     <null>
+2026-05-05 16:40:49.600 | capture event |   property name: IsCovered
+2026-05-05 16:40:49.600 | capture event |   property type: Boolean
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     <null>
+2026-05-05 16:40:49.600 | capture event |   property name: IsDeleted
+2026-05-05 16:40:49.600 | capture event |   property type: Boolean
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     false
+2026-05-05 16:40:49.600 | capture event |   property name: IsGroup
+2026-05-05 16:40:49.600 | capture event |   property type: Boolean
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     false
+2026-05-05 16:40:49.600 | capture event |   property name: LastModifiedBy
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     gam\LOGAN_CABRERA
+2026-05-05 16:40:49.600 | capture event |   property name: LastModifiedDate
+2026-05-05 16:40:49.600 | capture event |   property type: DateTime
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     20260505134049.000000+000
+2026-05-05 16:40:49.600 | capture event |   property name: LogonName
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     gam\EDWARD_MONTOYA
+2026-05-05 16:40:49.600 | capture event |   property name: Permissions
+2026-05-05 16:40:49.600 | capture event |   property type: Object
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     <null>
+2026-05-05 16:40:49.600 | capture event |   property name: RoleNames
+2026-05-05 16:40:49.600 | capture event |   property type: String[]
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     [
+2026-05-05 16:40:49.600 | capture event |       Full Administrator
+2026-05-05 16:40:49.600 | capture event |     ]
+2026-05-05 16:40:49.600 | capture event |   property name: Roles
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     <null>
+2026-05-05 16:40:49.600 | capture event |   property name: SKey
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:40:49.600 | capture event |   property name: SourceSite
+2026-05-05 16:40:49.600 | capture event |   property type: String
+2026-05-05 16:40:49.600 | capture event |   property value:
+2026-05-05 16:40:49.600 | capture event |     GAM
+2026-05-05 16:40:49.600 | capture event | enrich start: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:40:49.600 | capture event | SMS_Admin enrichment results:
+2026-05-05 16:40:49.600 | capture event | Account Type: 0
+2026-05-05 16:40:49.600 | capture event | Admin ID: 16777234
+2026-05-05 16:40:49.600 | capture event | Admin Sid: S-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:40:49.600 | capture event | Category Names: All
+2026-05-05 16:40:49.600 | capture event | Collection Names: All Systems
+2026-05-05 16:40:49.600 | capture event |                   All Users and User Groups
+2026-05-05 16:40:49.600 | capture event | Created By: gam\LOGAN_CABRERA
+2026-05-05 16:40:49.600 | capture event | Created Date: 2026-05-05 19:40:49Z
+2026-05-05 16:40:49.600 | capture event | Display Name: EDWARD_MONTOYA
+2026-05-05 16:40:49.600 | capture event | Distinguished Name: CN: EDWARD_MONTOYA
+2026-05-05 16:40:49.600 | capture event |                     OU: ServiceAccounts
+2026-05-05 16:40:49.600 | capture event |                     OU: FSR
+2026-05-05 16:40:49.600 | capture event |                     OU: Tier 2
+2026-05-05 16:40:49.600 | capture event |                     DC: gam
+2026-05-05 16:40:49.600 | capture event |                     DC: click
+2026-05-05 16:40:49.600 | capture event | Is Deleted: No
+2026-05-05 16:40:49.600 | capture event | Is Group: No
+2026-05-05 16:40:49.600 | capture event | Last Modified By: gam\LOGAN_CABRERA
+2026-05-05 16:40:49.600 | capture event | Last Modified Date: 2026-05-05 19:40:49Z
+2026-05-05 16:40:49.600 | capture event | Logon Name: gam\EDWARD_MONTOYA
+2026-05-05 16:40:49.600 | capture event | Role Names: Full Administrator
+2026-05-05 16:40:49.600 | capture event | SKey: GAMS-1-5-21-511818909-1338016983-424820340-1618
+2026-05-05 16:40:49.600 | capture event | Source Site: GAM
+2026-05-05 16:40:49.600 | capture event | enrich completed: SCCMInfo.Enrichers.SmsAdminEnricher
+2026-05-05 16:40:49.600 | capture event | capture event property count: 22
+2026-05-05 16:40:49.600 | capture event | 
+2026-05-05 16:40:49.600 | write event | application event summary prepared: capture event summary: class=SMS_Admin; properties=22; capture=success; enrich=success; serviceMode=False
+2026-05-05 16:40:49.610 | write event | application event written successfully; eventId=2001
+2026-05-05 16:43:28.801 | monitor | watcher stopped successfully
+2026-05-05 16:43:28.802 | monitor | watcher stopped successfully
+2026-05-05 16:43:28.803 | monitor | watcher stopped successfully
+2026-05-05 16:43:28.803 | monitor | watcher stopped successfully
+2026-05-05 16:43:28.804 | monitor | watcher stopped successfully

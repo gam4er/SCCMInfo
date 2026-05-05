@@ -1,5 +1,7 @@
 using Spectre.Console;
 
+using Spectre.Console;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,7 +33,7 @@ namespace SCCMInfo.Enrichers
             }
             catch (Exception ex)
             {
-                table.AddRow("EnrichmentError", ex.Message);
+                global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "EnrichmentError", ex.Message);
                 logMessage.AppendLine($"SMS_SCI_Reserved enrichment failed: {ex}");
             }
         }
@@ -45,12 +47,12 @@ namespace SCCMInfo.Enrichers
             {
                 if (AvailabilityMap.TryGetValue(availability, out string? description))
                 {
-                    table.AddRow("AvailabilityDescription", description);
+                    global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "AvailabilityDescription", description);
                     logMessage.AppendLine($"AvailabilityDescription: {description}");
                 }
                 else
                 {
-                    table.AddRow("AvailabilityDescription", $"Unknown ({availability})");
+                    global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "AvailabilityDescription", $"Unknown ({availability})");
                     logMessage.AppendLine($"AvailabilityDescription: Unknown ({availability})");
                 }
             }
@@ -65,12 +67,12 @@ namespace SCCMInfo.Enrichers
             {
                 if (FileTypeMap.TryGetValue(fileType, out string? description))
                 {
-                    table.AddRow("FileTypeDescription", description);
+                    global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "FileTypeDescription", description);
                     logMessage.AppendLine($"FileTypeDescription: {description}");
                 }
                 else
                 {
-                    table.AddRow("FileTypeDescription", $"Unknown ({fileType})");
+                    global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, "FileTypeDescription", $"Unknown ({fileType})");
                     logMessage.AppendLine($"FileTypeDescription: Unknown ({fileType})");
                 }
             }
@@ -85,7 +87,7 @@ namespace SCCMInfo.Enrichers
             if (targetInstance[propertyName] is Array array)
             {
                 string serialized = SerializeToJsonLike(array);
-                table.AddRow($"{propertyName} (detailed)", serialized);
+                global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, $"{propertyName} (detailed)", serialized);
                 logMessage.AppendLine($"{propertyName} (detailed):");
                 logMessage.AppendLine(serialized);
             }
@@ -98,7 +100,7 @@ namespace SCCMInfo.Enrichers
             object? value)
         {
             string serialized = SerializeToJsonLike(value);
-            table.AddRow($"{propertyName} (detailed)", serialized);
+            global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, $"{propertyName} (detailed)", serialized);
             logMessage.AppendLine($"{propertyName} (detailed):");
             logMessage.AppendLine(serialized);
         }

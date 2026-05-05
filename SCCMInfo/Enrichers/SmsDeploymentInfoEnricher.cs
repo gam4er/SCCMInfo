@@ -1,5 +1,7 @@
 using Spectre.Console;
 
+using Spectre.Console;
+
 using System;
 using System.IO;
 using System.Management;
@@ -24,8 +26,8 @@ namespace SCCMInfo.Enrichers
             string deploymentName = targetInstance["DeploymentName"]?.ToString();
             string collectionName = targetInstance["CollectionName"]?.ToString();
 
-            table.AddRow("CollectionID", collectionID);
-            table.AddRow("CollectionName", collectionName);
+            AddRow(table, "CollectionID", collectionID);
+            AddRow(table, "CollectionName", collectionName);
 
             string queryString = $"SELECT * FROM SMS_FullCollectionMembership WHERE CollectionID='{collectionID}'";
             ObjectQuery query = new ObjectQuery(queryString);
@@ -79,8 +81,8 @@ namespace SCCMInfo.Enrichers
             File.WriteAllText(csvFileName, csvData.ToString());
 
             int membersCount = collectionMembers.Count;
-            table.AddRow("CollectionMembersCount", membersCount.ToString());
-            table.AddRow("CollectionMembersFile", csvFileName);
+            AddRow(table, "CollectionMembersCount", membersCount.ToString());
+            AddRow(table, "CollectionMembersFile", csvFileName);
 
             logMessage.AppendLine($"Collection members info saved to file {csvFileName}, total members: {membersCount}");
             logMessage.AppendLine($"Collection Name: {collectionName}, ID: {collectionID}");
@@ -99,7 +101,7 @@ namespace SCCMInfo.Enrichers
                     application = app_in_collection;
                     application.Get();
                     logMessage.AppendLine("App refreshed");
-                    string sdmPackageXml = application["SDMPackageXML"]?.ToString();
+                    string sdmPackageXml = application ["SDMPackageXML"]?.ToString();
                     logMessage.AppendLine($"sdmPackageXml gotted");
                     try
                     {
@@ -125,12 +127,12 @@ namespace SCCMInfo.Enrichers
                             string appInstallDate = appMgmtDigest.SelectSingleNode("ab:InstallDate", nsmgr)?.InnerText ?? string.Empty;
                             string appInstallSource = appMgmtDigest.SelectSingleNode("ab:InstallSource", nsmgr)?.InnerText ?? string.Empty;
 
-                            table.AddRow("ApplicationName", appName);
-                            table.AddRow("ApplicationVersion", appVersion);
-                            table.AddRow("ApplicationPublisher", appPublisher);
-                            table.AddRow("ApplicationInstallDate", appInstallDate);
-                            table.AddRow("ApplicationInstallSource", appInstallSource);
-                            table.AddRow("ApplicationXMLFile", xmlFileName);
+                            AddRow(table, "ApplicationName", appName);
+                            AddRow(table, "ApplicationVersion", appVersion);
+                            AddRow(table, "ApplicationPublisher", appPublisher);
+                            AddRow(table, "ApplicationInstallDate", appInstallDate);
+                            AddRow(table, "ApplicationInstallSource", appInstallSource);
+                            AddRow(table, "ApplicationXMLFile", xmlFileName);
                             logMessage.AppendLine("Application info saved to vars");
 
                             try
@@ -141,7 +143,7 @@ namespace SCCMInfo.Enrichers
                                     string argName = argNode.Attributes?["Name"]?.Value;
                                     string argText = argNode.InnerText;
                                     logMessage.AppendLine($"And that application install arguments:       '{argName}' '{argText}'");
-                                    table.AddRow(argName, argText);
+                                    AddRow(table, argName, argText);
                                 }
                                 logMessage.AppendLine("Application Install Arguments saved");
                             }
@@ -154,7 +156,7 @@ namespace SCCMInfo.Enrichers
                             {
                                 XmlNode commandLineArgNode = xmlDoc.SelectSingleNode("//ab:DeploymentType/ab:Installer/ab:InstallAction/ab:Args/ab:Arg[@Name='CommandLine']", nsmgr);
                                 string commandLineArg = commandLineArgNode?.InnerText;
-                                table.AddRow("application command line", commandLineArg);
+                                AddRow(table, "application command line", commandLineArg);
                                 logMessage.AppendLine($"And that application command line:             '{commandLineArg}'");
                             }
                             catch
@@ -166,7 +168,7 @@ namespace SCCMInfo.Enrichers
                             {
                                 string installCommandLine = xmlDoc.SelectSingleNode("//ab:DeploymentType/ab:Installer/ab:CustomData/ab:InstallCommandLine", nsmgr)?.InnerText;
                                 logMessage.AppendLine($"And that application install command line:     '{installCommandLine}'");
-                                table.AddRow("application install command line", installCommandLine);
+                                AddRow(table, "application install command line", installCommandLine);
                             }
                             catch
                             {
@@ -177,7 +179,7 @@ namespace SCCMInfo.Enrichers
                             {
                                 string uninstallCommandLine = xmlDoc.SelectSingleNode("//ab:DeploymentType/ab:Installer/ab:CustomData/ab:UninstallCommandLine", nsmgr)?.InnerText;
                                 logMessage.AppendLine($"And that application uninstall command line:   '{uninstallCommandLine}'");
-                                table.AddRow("application uninstall command line", uninstallCommandLine);
+                                AddRow(table, "application uninstall command line", uninstallCommandLine);
                             }
                             catch
                             {
@@ -200,6 +202,11 @@ namespace SCCMInfo.Enrichers
                 }
                 break;
             }
+        }
+
+        private static void AddRow(Table table, string propertyName, string propertyValue)
+        {
+            global::SCCMInfo.WmiDisplayUtil.AddPlainTextRow(table, propertyName, propertyValue);
         }
     }
 }
