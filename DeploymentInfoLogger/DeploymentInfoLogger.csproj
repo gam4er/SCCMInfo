@@ -2,6 +2,11 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
+    <AssemblyTitle>DeploymentInfoLogger</AssemblyTitle>
+    <Product>DeploymentInfoLogger</Product>
+    <Copyright>Copyright ©  2024</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.CodeDom" Version="8.0.0" />
