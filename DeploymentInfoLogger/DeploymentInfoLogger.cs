@@ -1,52 +1,54 @@
 ﻿using System;
 using System.Collections;
-using System.EnterpriseServices.Internal;
+// using System.EnterpriseServices.Internal; // Removed: Not available in .NET 8.0 and not present in project dependencies
 using System.IO;
 using System.Management;
-using System.Management.Instrumentation;
+// using System.Management.Instrumentation; // Removed: Not available in .NET 8.0 or current dependencies
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 
-[assembly: WmiConfiguration(@"root\cimv2", HostingModel = ManagementHostingModel.Decoupled)]
+// [assembly: WmiConfiguration(@"root\cimv2", HostingModel = ManagementHostingModel.Decoupled)] // Removed: WmiConfigurationAttribute and ManagementHostingModel are not available in .NET 8.0 or current dependencies
 namespace WMIEventProvider
 {
     [System.ComponentModel.RunInstaller(true)]
-    public class InstallCCMMonitoring : DefaultManagementInstaller
+    // DefaultManagementInstaller is not available in .NET 8.0 or current dependencies.
+    // Consider implementing custom installer logic or using a different base class if required.
+    public class InstallCCMMonitoring
     {
-        public override void Install(IDictionary stateSaver)
+        public void Install(IDictionary stateSaver)
         {
 
-            Publish publish = new Publish();
-            publish.GacInstall("DeploymentInfoLogger.dll");
-            base.Install(stateSaver);
-            RegistrationServices RS = new RegistrationServices();
+            // The 'Publish' type is not available in .NET 8.0 or your current dependencies. GAC operations are not supported directly. Consider alternative deployment strategies or use a compatible library if GAC install is required.
+            // publish.GacInstall("DeploymentInfoLogger.dll"); // Not supported in .NET 8.0
+            // base.Install(stateSaver); // No base class to call, so this is commented out.
+            // RegistrationServices RS = new RegistrationServices(); // Not available in .NET 8.0 and not present in project dependencies
 
             //This should be fixed with .NET 3.5 SP1
-            RS.RegisterAssembly(System.Reflection.Assembly.GetExecutingAssembly(), AssemblyRegistrationFlags.SetCodeBase);
+            // RS.RegisterAssembly(System.Reflection.Assembly.GetExecutingAssembly(), AssemblyRegistrationFlags.SetCodeBase); // Not available in .NET 8.0 and not present in project dependencies
             //InstrumentationManager.RegisterType(typeof(NewProcessInfoLogger));
             //NewProcessInfoLogger.Start();            
             var t = new NewProcessInfoLogger();
         }
 
-        public override void Uninstall(IDictionary savedState)
+        public void Uninstall(IDictionary savedState)
         {
             try
             {
-                Publish publish = new Publish();
-                publish.GacRemove("DeploymentInfoLogger.dll");
+                // The 'Publish' type is not available in .NET 8.0 or your current dependencies. GAC operations are not supported directly. Consider alternative deployment strategies or use a compatible library if GAC remove is required.
+                // publish.GacRemove("DeploymentInfoLogger.dll"); // Not supported in .NET 8.0
             }
             catch { }
 
             try
             {
-                base.Uninstall(savedState);
+                // base.Uninstall(savedState); // No base class to call, so this is commented out.
             }
             catch { }
         }
     }
 
-    [ManagementEntity(External = true,Singleton = true)]
+    // [ManagementEntity(External = true,Singleton = true)] // ManagementEntityAttribute is not available in .NET 8.0 or current dependencies
     
     public class NewProcessInfoLogger 
     {
@@ -55,11 +57,11 @@ namespace WMIEventProvider
 
         private static ManagementEventWatcher _watcher;
         
-        [ManagementKey]
+        // [ManagementKey] // ManagementKeyAttribute is not available in .NET 8.0 or current dependencies
         public string Member { get; set; }
 
         //[ManagementBind]
-        [ManagementCreate]
+        // [ManagementCreate] // ManagementCreateAttribute is not available in .NET 8.0 or current dependencies
         static NewProcessInfoLogger()
         {
             _instance = new NewProcessInfoLogger();
