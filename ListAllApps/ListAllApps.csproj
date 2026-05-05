@@ -3,9 +3,4 @@
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System.Management" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
 </Project>
